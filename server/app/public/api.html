@@ -1,0 +1,1243 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>APP接口文档</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#文件处理">文件处理</a></div><div class="collapse-content"><ul><li><a href="#文件处理-图片处理">图片处理</a><ul><li><a href="#文件处理-图片处理-post"><span class="badge post"><i class="fa fa-plus"></i></span>上传图片</a></li><li><a href="#文件处理-图片处理-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>下载图片</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#登录相关处理">登录相关处理</a></div><div class="collapse-content"><ul><li><a href="#登录相关处理-获取验证码-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取验证码</a></li><li><a href="#登录相关处理-登录-post"><span class="badge post"><i class="fa fa-plus"></i></span>登录</a></li><li><a href="#登录相关处理-注销-post"><span class="badge post"><i class="fa fa-plus"></i></span>注销</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#权限管理">权限管理</a></div><div class="collapse-content"><ul><li><a href="#权限管理-获取权限列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取权限列表</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#用户管理">用户管理</a></div><div class="collapse-content"><ul><li><a href="#用户管理-添加用户-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加用户</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#用户组管理">用户组管理</a></div><div class="collapse-content"><ul><li><a href="#用户组管理-添加用户组-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加用户组</a></li><li><a href="#用户组管理-获取用户组列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取用户组列表</a></li><li><a href="#用户组管理-用户组-权限操作">用户组-权限操作</a><ul><li><a href="#用户组管理-用户组-权限操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取用户组权限</a></li><li><a href="#用户组管理-用户组-权限操作-post"><span class="badge post"><i class="fa fa-plus"></i></span>为用户组分配权限</a></li></ul></li><li><a href="#用户组管理-用户组-用户操作">用户组-用户操作</a><ul><li><a href="#用户组管理-用户组-用户操作-post"><span class="badge post"><i class="fa fa-plus"></i></span>为用户组分配用户</a></li><li><a href="#用户组管理-用户组-用户操作-delete"><span class="badge delete"><i class="fa fa-times"></i></span>为用户组移除用户</a></li><li><a href="#用户组管理-用户组-用户操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取用户组所有用户</a></li></ul></li><li><a href="#用户组管理-用户组单例操作">用户组单例操作</a><ul><li><a href="#用户组管理-用户组单例操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>根据ID获取用户组</a></li><li><a href="#用户组管理-用户组单例操作-put"><span class="badge put"><i class="fa fa-pencil"></i></span>根据ID更新用户组</a></li><li><a href="#用户组管理-用户组单例操作-delete"><span class="badge delete"><i class="fa fa-times"></i></span>根据ID删除用户组</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#游戏参数管理">游戏参数管理</a></div><div class="collapse-content"><ul><li><a href="#游戏参数管理-添加游戏参数-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加游戏参数</a></li><li><a href="#游戏参数管理-获取游戏参数列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取游戏参数列表</a></li><li><a href="#游戏参数管理-游戏参数单例操作">游戏参数单例操作</a><ul><li><a href="#游戏参数管理-游戏参数单例操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>根据ID获取游戏参数</a></li><li><a href="#游戏参数管理-游戏参数单例操作-put"><span class="badge put"><i class="fa fa-pencil"></i></span>根据ID更新游戏参数</a></li><li><a href="#游戏参数管理-游戏参数单例操作-delete"><span class="badge delete"><i class="fa fa-times"></i></span>根据ID删除游戏参数</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#游戏列表管理">游戏列表管理</a></div><div class="collapse-content"><ul><li><a href="#游戏列表管理-添加游戏-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加游戏</a></li><li><a href="#游戏列表管理-获取游戏列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取游戏列表</a></li><li><a href="#游戏列表管理-游戏模型单例操作">游戏模型单例操作</a><ul><li><a href="#游戏列表管理-游戏模型单例操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>根据ID获取游戏</a></li><li><a href="#游戏列表管理-游戏模型单例操作-put"><span class="badge put"><i class="fa fa-pencil"></i></span>根据ID更新游戏</a></li><li><a href="#游戏列表管理-游戏模型单例操作-delete"><span class="badge delete"><i class="fa fa-times"></i></span>根据ID删除游戏</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#活动管理">活动管理</a></div><div class="collapse-content"><ul><li><a href="#活动管理-添加活动-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加活动</a></li><li><a href="#活动管理-获取活动列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取活动列表</a></li><li><a href="#活动管理-交换活动排序-post"><span class="badge post"><i class="fa fa-plus"></i></span>交换活动排序</a></li><li><a href="#活动管理-活动模型单例操作">活动模型单例操作</a><ul><li><a href="#活动管理-活动模型单例操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>根据ID获取活动</a></li><li><a href="#活动管理-活动模型单例操作-put"><span class="badge put"><i class="fa fa-pencil"></i></span>根据ID更新活动</a></li><li><a href="#活动管理-活动模型单例操作-delete"><span class="badge delete"><i class="fa fa-times"></i></span>根据ID删除活动</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#角标管理">角标管理</a></div><div class="collapse-content"><ul><li><a href="#角标管理-添加角标-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加角标</a></li><li><a href="#角标管理-获取角标列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取角标列表</a></li><li><a href="#角标管理-角标模型单例操作">角标模型单例操作</a><ul><li><a href="#角标管理-角标模型单例操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>根据ID获取角标</a></li><li><a href="#角标管理-角标模型单例操作-put"><span class="badge put"><i class="fa fa-pencil"></i></span>根据ID更新角标</a></li><li><a href="#角标管理-角标模型单例操作-delete"><span class="badge delete"><i class="fa fa-times"></i></span>根据ID删除角标</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#广播管理">广播管理</a></div><div class="collapse-content"><ul><li><a href="#广播管理-添加广播-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加广播</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#消息管理">消息管理</a></div><div class="collapse-content"><ul><li><a href="#消息管理-添加消息-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加消息</a></li><li><a href="#消息管理-获取消息列表-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>获取消息列表</a></li><li><a href="#消息管理-消息模型单例操作">消息模型单例操作</a><ul><li><a href="#消息管理-消息模型单例操作-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>根据ID获取角标</a></li><li><a href="#消息管理-消息模型单例操作-put"><span class="badge put"><i class="fa fa-pencil"></i></span>根据ID更新消息</a></li></ul></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#装修管理">装修管理</a></div><div class="collapse-content"><ul><li><a href="#装修管理-添加装修-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加装修</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#玩家列表管理">玩家列表管理</a></div><div class="collapse-content"><ul><li><a href="#玩家列表管理-添加玩家-post"><span class="badge post"><i class="fa fa-plus"></i></span>添加玩家</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">APP接口文档</h1></header><section id="文件处理" class="resource-group"><h2 class="group-heading">文件处理 <a href="#文件处理" class="permalink">&para;</a></h2><div id="文件处理-图片处理" class="resource"><h3 class="resource-heading">图片处理 <a href="#文件处理-图片处理" class="permalink">&nbsp;&para;</a></h3><div id="文件处理-图片处理-post" class="action post"><h4 class="action-heading"><div class="name">上传图片</div><a href="#文件处理-图片处理-post" class="method post">POST</a><code class="uri">/api/v1/image</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/image</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">multipart/*</span></code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">url</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/d766bb8b-a85c-4c98-9673-e132d3862747"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="文件处理-图片处理-get" class="action get"><h4 class="action-heading"><div class="name">下载图片</div><a href="#文件处理-图片处理-get" class="method get">GET</a><code class="uri">/api/v1/image</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/image</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    imgUrl: <span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/d766bb8b-a85c-4c98-9673-e132d3862747"</span>
+}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    imgUrl: "string" - 图片地址
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">image/*</span></code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="登录相关处理" class="resource-group"><h2 class="group-heading">登录相关处理 <a href="#登录相关处理" class="permalink">&para;</a></h2><div id="登录相关处理-获取验证码" class="resource"><h3 class="resource-heading">获取验证码 <a href="#登录相关处理-获取验证码" class="permalink">&nbsp;&para;</a></h3><div id="登录相关处理-获取验证码-get" class="action get"><h4 class="action-heading"><div class="name">获取验证码</div><a href="#登录相关处理-获取验证码-get" class="method get">GET</a><code class="uri">/api/v1/captcha</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/captcha</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "id": "H14pihDOz",
+    "data": "<span class="hljs-tag">&lt;<span class="hljs-title">svg</span> <span class="hljs-attribute">xmlns</span>=<span class="hljs-value">"http: //www.w3.org/2000/svg"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"150"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"50"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">rect</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"100%"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"100%"</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"#11eeee"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M6 19 C60 1,70 46,137 8"</span> <span class="hljs-attribute">stroke</span>=<span class="hljs-value">"#e15050"</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"none"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"#38413d"</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M28.68 27.75L28.59 27.66L28.70 27.78Q25.03 27.53 23.93 30.88L23.97 30.92L24.03 30.98Q23.68 32.08 23.57 33.15L23.53 33.11L23.57 33.15Q23.24 35.07 24.23 36.40L24.39 36.56L24.37 36.54Q25.63 37.65 28.11 37.69L28.08 37.66L28.19 37.77Q30.06 37.85 31.47 36.71L31.46 36.70L31.28 36.52Q32.77 35.46 32.77 33.67L32.86 33.76L32.81 33.71Q32.70 33.26 32.62 32.88L32.74 32.99L32.70 32.95Q32.40 27.74 28.59 27.66ZM28.59 40.23L28.51 40.15L28.46 40.10Q24.67 40.34 22.88 38.33L22.87 38.32L23.02 38.47Q22.68 39.38 22.22 40.75L22.23 40.76L22.37 40.90Q20.31 41.54 19.05 42.11L19.13 42.19L19.02 42.08Q21.22 36.13 21.22 29.62L21.17 29.57L21.17 29.57Q21.29 21.39 17.87 13.55L17.79 13.47L17.90 13.59Q20.15 14.85 21.48 15.30L21.49 15.31L21.47 15.29Q23.55 21.90 23.70 27.73L23.67 27.69L23.73 27.75Q25.20 25.12 28.93 25.15L28.96 25.18L29.01 25.23Q32.10 25.12 33.58 26.98L33.60 27.00L33.58 26.98Q35.49 29.35 35.64 32.93L35.58 32.86L35.67 32.95Q35.61 34.00 35.53 35.60L35.66 35.72L35.68 35.75Q35.64 37.19 34.76 38.33L34.65 38.22L34.66 38.23Q32.83 39.86 28.49 40.13ZM34.06 42.72L34.06 42.72L34.09 42.76Q35.58 42.76 37.06 42.07L37.02 42.03L37.03 42.04Q38.18 40.79 38.22 38.85L38.12 38.76L38.27 38.90Q38.28 38.42 38.13 37.24L38.01 37.13L38.09 37.21Q37.98 36.48 37.86 35.57L37.85 35.56L37.86 35.57Q37.01 30.76 35.45 28.70L35.43 28.68L35.39 28.63Q35.51 28.72 34.71 27.84L34.72 27.86L34.73 27.86Q34.50 27.60 33.97 26.80L33.94 26.77L33.79 26.62Q32.24 24.73 28.89 24.77L28.96 24.84L28.84 24.71Q26.97 24.94 25.71 25.54L25.64 25.48L25.70 25.54Q25.23 20.88 24.62 17.68L24.75 17.81L24.65 17.71Q23.88 17.51 22.39 17.13L22.52 17.26L22.55 17.29Q22.22 16.35 21.77 14.90L21.94 15.07L21.86 14.99Q19.33 14.10 17.09 12.54L17.07 12.53L17.08 12.53Q20.99 20.86 20.99 29.66L21.02 29.69L20.91 29.58Q20.97 36.61 18.50 42.81L18.39 42.70L18.50 42.82Q19.07 42.36 20.40 41.78L20.49 41.88L20.45 41.83Q20.33 42.70 19.72 44.22L19.59 44.09L19.73 44.23Q21.54 43.15 24.32 42.62L24.34 42.63L24.74 40.83L24.78 40.87Q27.09 42.57 34.02 42.69ZM30.34 30.10L30.24 30.00L30.27 30.03Q31.25 29.99 31.79 30.37L31.86 30.44L31.83 30.41Q32.21 30.98 32.44 33.00L32.38 32.94L32.35 32.91Q32.50 34.73 31.24 36.05L31.31 36.11L31.26 36.06Q30.09 37.46 28.15 37.35L28.13 37.33L28.05 37.25Q27.27 37.54 25.78 37.04L25.83 37.08L25.68 36.94Q25.43 36.42 25.43 35.89L25.52 35.97L25.47 35.93Q25.48 32.85 27.04 31.25L27.00 31.21L26.99 31.24L26.99 31.24Q28.52 29.96 30.27 30.03Z"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"#283438"</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M85.90 19.59L85.97 19.66L84.33 19.70L84.38 19.74Q82.14 19.87 81.91 21.88L81.95 21.91L82.00 21.97Q81.86 22.63 81.90 23.62L81.82 23.54L81.85 23.57Q81.96 25.58 83.22 26.92L83.19 26.89L83.19 26.89Q84.52 28.30 86.42 28.14L86.26 27.99L86.27 27.99Q88.44 27.95 89.20 27.04L89.11 26.94L89.19 27.02Q90.25 26.10 90.51 23.86L90.44 23.78L90.48 23.83Q90.65 21.48 89.40 20.65L89.53 20.78L89.53 20.78Q88.70 20.03 86.04 19.73ZM91.91 28.80L91.93 28.82L90.75 31.21L90.78 31.24Q88.02 35.98 84.25 40.06L84.22 40.02L84.24 40.04Q82.63 40.22 79.93 41.02L79.98 41.08L79.83 40.93Q85.14 34.63 88.30 29.83L88.33 29.86L88.33 29.86Q87.41 30.62 85.78 30.70L85.69 30.61L85.73 30.65Q82.74 30.82 81.22 28.84L81.21 28.83L81.22 28.84Q80.02 27.26 78.91 22.69L78.83 22.61L78.85 22.63Q78.83 22.15 78.68 21.22L78.68 21.22L78.73 21.27Q78.61 20.36 78.61 19.91L78.66 19.96L78.57 19.87Q78.46 17.98 79.53 17.37L79.60 17.44L79.64 17.48Q80.74 16.60 82.61 16.60L82.67 16.67L82.74 16.74Q85.95 16.75 85.95 16.75L86.01 16.80L85.88 16.68Q88.11 16.77 89.36 16.96L89.37 16.96L89.37 16.96Q91.56 17.29 92.47 17.78L92.36 17.67L92.34 17.65Q93.84 18.54 94.03 20.30L93.98 20.25L93.92 20.19Q93.91 20.41 93.72 23.07L93.82 23.17L93.70 23.05Q93.38 25.24 93.15 26.08L93.15 26.08L93.17 26.09Q92.86 27.57 92.09 28.98ZM93.96 31.34L93.81 31.19L93.83 31.21Q94.88 29.07 95.42 24.76L95.35 24.70L95.44 24.78Q95.70 22.58 95.67 21.70L95.62 21.65L95.69 21.72Q95.60 19.81 94.42 18.89L94.49 18.96L94.23 18.89L94.05 18.72Q93.93 18.10 93.01 17.45L92.88 17.32L92.93 17.37Q90.59 16.32 85.79 16.17L85.89 16.27L85.84 16.22Q85.00 16.33 82.56 16.33L82.45 16.22L82.56 16.32Q80.69 16.21 79.21 16.89L79.18 16.87L79.33 17.02Q78.13 17.76 78.21 19.59L78.11 19.48L78.15 19.52Q78.28 20.38 78.47 22.40L78.54 22.47L78.61 22.54Q79.22 25.17 79.49 26.00L79.47 25.99L79.35 25.87Q79.93 27.74 80.88 29.03L80.91 29.07L80.88 29.03Q81.29 29.52 81.67 29.90L81.64 29.87L81.60 29.83Q81.88 30.30 82.53 31.22L82.52 31.20L82.48 31.17Q83.97 32.54 85.91 32.73L85.89 32.71L85.89 32.71Q84.06 35.45 82.50 37.35L82.46 37.31L78.81 41.66L78.77 41.62Q81.06 40.90 82.70 40.56L82.75 40.61L82.82 40.68Q81.95 41.45 80.39 43.16L80.48 43.25L80.43 43.20Q83.54 42.32 86.66 42.28L86.60 42.22L86.71 42.33Q89.05 39.75 93.39 32.52L93.25 32.38L93.34 32.55L93.37 32.57Q93.65 31.86 93.99 31.37ZM87.95 22.10L87.94 22.08L87.82 21.96Q88.54 21.96 88.99 22.07L88.93 22.01L89.03 22.11Q89.66 22.21 90.04 22.32L89.92 22.20L90.04 22.32Q90.16 22.70 90.23 23.12L90.11 22.99L90.19 23.08Q90.27 23.50 90.16 23.88L90.22 23.95L90.14 23.86Q90.12 25.60 88.94 26.70L88.92 26.68L88.82 26.58Q88.03 27.77 86.39 27.73L86.29 27.63L86.41 27.75Q85.99 27.75 84.47 27.45L84.34 27.31L84.29 27.26Q84.17 26.50 84.17 25.77L84.06 25.66L84.10 25.71Q84.05 25.47 84.05 25.24L84.16 25.34L84.04 25.23Q84.14 23.12 86.42 22.32L86.41 22.31L86.40 22.30Q87.13 22.12 87.97 22.12Z"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"#2b2b30"</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M56.40 19.68L56.39 19.68L54.78 19.74L54.87 19.83Q52.48 19.80 52.25 21.82L52.35 21.92L52.39 21.96Q52.30 22.67 52.34 23.66L52.29 23.61L52.21 23.53Q52.30 25.52 53.55 26.85L53.58 26.88L53.53 26.83Q54.82 28.20 56.73 28.05L56.81 28.13L56.69 28.01Q58.80 27.91 59.56 26.99L59.57 27.01L59.48 26.92Q60.59 26.04 60.85 23.80L60.96 23.91L60.84 23.79Q61.22 21.65 59.96 20.81L59.98 20.83L59.82 20.68Q59.03 19.96 56.37 19.66ZM62.36 28.84L62.31 28.79L61.06 31.12L61.06 31.12Q58.31 35.88 54.54 39.95L54.55 39.95L54.69 40.10Q53.04 40.23 50.34 41.03L50.23 40.93L50.37 41.07Q55.70 34.79 58.86 29.99L58.70 29.83L58.76 29.89Q57.72 30.53 56.09 30.60L56.07 30.59L56.05 30.57Q53.20 30.88 51.68 28.90L51.54 28.76L51.65 28.87Q50.39 27.23 49.29 22.66L49.24 22.61L49.31 22.69Q49.21 22.13 49.06 21.20L49.17 21.31L49.17 21.31Q48.89 20.25 48.89 19.79L49.06 19.96L48.93 19.83Q48.86 17.97 49.93 17.37L50.00 17.44L49.94 17.38Q51.21 16.67 53.08 16.67L53.15 16.74L53.17 16.76Q56.28 16.68 56.28 16.68L56.36 16.75L56.24 16.63Q58.56 16.82 59.81 17.01L59.79 16.98L59.78 16.97Q61.94 17.27 62.85 17.76L62.79 17.70L62.72 17.63Q64.13 18.43 64.32 20.18L64.37 20.23L64.30 20.16Q64.36 20.45 64.17 23.12L64.23 23.18L64.12 23.07Q63.78 25.24 63.55 26.08L63.61 26.14L63.50 26.03Q63.19 27.51 62.43 28.92ZM64.38 31.36L64.25 31.23L64.37 31.35Q65.19 28.98 65.73 24.67L65.89 24.83L65.88 24.83Q66.15 22.62 66.11 21.74L65.98 21.62L66.12 21.76Q65.93 19.74 64.75 18.83L64.88 18.96L64.51 18.78L64.63 18.89Q64.26 18.03 63.35 17.39L63.36 17.40L63.28 17.32Q61.06 16.39 56.27 16.24L56.24 16.21L56.32 16.30Q55.34 16.27 52.91 16.27L52.85 16.21L52.92 16.29Q51.20 16.31 49.71 17.00L49.55 16.83L49.74 17.02Q48.43 17.66 48.51 19.49L48.67 19.65L48.57 19.55Q48.82 20.52 49.01 22.54L49.05 22.58L48.91 22.44Q49.52 25.06 49.78 25.90L49.81 25.93L49.86 25.97Q50.38 27.79 51.33 29.09L51.34 29.10L51.38 29.13Q51.67 29.50 52.05 29.88L52.09 29.92L51.93 29.76Q52.33 30.35 52.98 31.26L52.86 31.15L52.93 31.21Q54.46 32.63 56.40 32.82L56.43 32.85L56.30 32.72Q54.53 35.52 52.97 37.43L52.78 37.24L49.30 41.75L49.31 41.76Q51.53 40.97 53.16 40.62L53.19 40.65L53.07 40.53Q52.40 41.50 50.84 43.21L50.73 43.10L50.82 43.19Q53.82 42.20 56.94 42.16L57.10 42.32L57.00 42.21Q59.45 39.75 63.79 32.52L63.65 32.38L63.74 32.55L63.65 32.46Q63.92 31.74 64.26 31.24ZM58.24 21.98L58.35 22.10L58.19 21.93Q58.86 21.88 59.31 21.99L59.41 22.09L59.28 21.96Q60.04 22.19 60.42 22.30L60.35 22.23L60.39 22.27Q60.51 22.65 60.59 23.07L60.57 23.06L60.62 23.11Q60.70 23.53 60.59 23.91L60.49 23.81L60.48 23.81Q60.59 25.67 59.41 26.77L59.35 26.71L59.34 26.70Q58.36 27.70 56.73 27.67L56.65 27.59L56.79 27.73Q56.28 27.63 54.75 27.33L54.73 27.30L54.77 27.34Q54.59 26.51 54.59 25.79L54.49 25.69L54.53 25.73Q54.46 25.47 54.46 25.24L54.45 25.24L54.44 25.22Q54.58 23.16 56.86 22.36L56.68 22.17L56.66 22.16Q57.39 21.97 58.22 21.97Z"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M16 43 C57 10,57 39,134 8"</span> <span class="hljs-attribute">stroke</span>=<span class="hljs-value">"#e27de2"</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"none"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">path</span> <span class="hljs-attribute">fill</span>=<span class="hljs-value">"#394535"</span> <span class="hljs-attribute">d</span>=<span class="hljs-value">"M114.87 29.92L114.76 29.81L114.87 29.92Q114.63 29.91 114.33 29.91L114.30 29.88L114.29 29.87Q113.00 29.91 111.55 30.75L111.57 30.77L111.47 30.67Q110.07 31.71 110.07 33.61L110.16 33.70L110.04 33.58Q110.05 37.02 111.58 38.35L111.70 38.48L111.67 38.44Q112.67 39.68 114.96 39.68L114.98 39.70L114.89 39.61Q115.15 39.65 115.46 39.65L115.38 39.57L115.56 39.75Q117.10 39.57 118.24 37.93L118.38 38.08L118.36 38.05Q119.35 36.49 119.27 34.71L119.31 34.74L119.34 34.77Q119.38 34.28 119.38 33.86L119.41 33.89L119.35 33.83Q119.27 31.96 117.90 30.80L117.96 30.86L118.01 30.91Q116.63 29.74 114.84 29.89ZM119.40 40.12L119.36 40.08L119.31 40.03Q118.34 41.99 114.61 42.11L114.68 42.18L114.53 42.03Q111.18 42.19 109.58 40.59L109.61 40.62L109.61 40.61Q108.06 38.76 107.26 33.96L107.37 34.07L107.29 33.99Q106.96 32.22 106.96 30.96L107.08 31.08L106.95 30.95Q107.11 29.32 107.83 28.25L107.68 28.10L107.81 28.23Q109.02 26.70 111.99 26.70L112.13 26.83L112.17 26.88Q118.42 26.81 120.32 29.40L120.27 29.34L120.30 29.37Q120.59 28.67 121.01 27.07L120.92 26.99L120.95 27.01Q122.24 26.75 124.68 25.95L124.70 25.97L124.70 25.97Q122.15 31.49 121.92 37.81L122.03 37.92L121.86 37.75Q121.76 44.04 123.89 49.87L123.89 49.87L123.75 49.73Q122.15 49.23 120.36 48.96L120.24 48.85L120.32 48.93Q119.45 45.01 119.33 40.06ZM120.00 49.18L120.07 49.25L120.14 49.32Q120.78 49.39 122.19 49.69L122.15 49.65L122.19 49.69Q122.52 50.52 123.09 51.93L122.92 51.75L122.95 51.78Q125.53 52.50 127.82 53.79L127.96 53.94L127.80 53.78Q123.84 47.26 123.84 38.73L123.82 38.72L123.93 38.83Q123.86 32.41 126.34 26.62L126.31 26.59L126.32 26.60Q125.59 26.86 124.22 27.51L124.35 27.64L124.24 27.53Q124.65 26.83 125.30 25.27L125.30 25.27L125.18 25.15Q123.71 25.78 120.51 26.65L120.57 26.72L120.58 26.72Q120.28 27.11 119.98 28.29L120.10 28.41L120.04 28.35Q118.07 26.50 111.94 26.35L111.86 26.26L111.87 26.27Q108.77 26.30 107.40 27.78L107.36 27.74L107.35 27.73Q106.58 28.87 106.62 30.77L106.67 30.82L106.72 30.87Q106.73 33.78 107.72 37.54L107.70 37.53L107.77 37.59Q108.35 39.93 109.27 40.88L109.35 40.96L109.60 41.21L109.77 41.38Q110.87 44.08 116.32 44.31L116.28 44.28L116.22 44.21Q117.33 44.33 119.15 44.03L119.20 44.07L119.20 44.07Q119.53 47.03 120.14 49.31ZM116.73 32.20L116.64 32.12L116.68 32.15Q117.84 32.24 118.68 32.55L118.67 32.54L118.68 32.55Q118.85 33.07 118.97 33.68L119.03 33.74L118.86 33.57Q119.10 34.26 119.02 34.87L118.84 34.69L118.95 34.80Q118.85 36.60 117.82 37.90L118.00 38.07L117.83 37.91Q116.80 39.46 114.93 39.27L114.86 39.21L114.90 39.24Q113.52 39.15 112.56 38.73L112.57 38.74L112.61 38.77Q112.24 37.95 112.24 36.74L112.30 36.79L112.32 36.81Q112.24 36.42 112.24 36.12L112.27 36.15L112.30 36.19Q112.20 34.33 113.53 33.17L113.65 33.29L113.58 33.22Q114.98 32.13 116.73 32.20Z"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">svg</span>&gt;</span>"
+}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="登录相关处理-登录" class="resource"><h3 class="resource-heading">登录 <a href="#登录相关处理-登录" class="permalink">&nbsp;&para;</a></h3><div id="登录相关处理-登录-post" class="action post"><h4 class="action-heading"><div class="name">登录</div><a href="#登录相关处理-登录-post" class="method post">POST</a><code class="uri">/api/v1/login</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/login</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">username</span>": <span class="hljs-value"><span class="hljs-string">"admin"</span></span>,
+  "<span class="hljs-attribute">password</span>": <span class="hljs-value"><span class="hljs-string">"123456"</span></span>,
+  "<span class="hljs-attribute">captchaId</span>": <span class="hljs-value"><span class="hljs-string">"H14pihDOz"</span></span>,
+  "<span class="hljs-attribute">captcha</span>": <span class="hljs-value"><span class="hljs-string">"b99q"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    username: "string" - 图片地址
+    password: "string" - 图片地址
+    captchaId: "验证码ID" - 图片地址
+    captcha: "验证码" - 图片地址
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong></div></div></div><div id="登录相关处理-注销" class="resource"><h3 class="resource-heading">注销 <a href="#登录相关处理-注销" class="permalink">&nbsp;&para;</a></h3><div id="登录相关处理-注销-post" class="action post"><h4 class="action-heading"><div class="name">注销</div><a href="#登录相关处理-注销-post" class="method post">POST</a><code class="uri">/api/v1/logout</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/logout</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong></div></div></div></section><section id="权限管理" class="resource-group"><h2 class="group-heading">权限管理 <a href="#权限管理" class="permalink">&para;</a></h2><div id="权限管理-获取权限列表" class="resource"><h3 class="resource-heading">获取权限列表 <a href="#权限管理-获取权限列表" class="permalink">&nbsp;&para;</a></h3><div id="权限管理-获取权限列表-get" class="action get"><h4 class="action-heading"><div class="name">获取权限列表</div><a href="#权限管理-获取权限列表-get" class="method get">GET</a><code class="uri">/api/v1/permissions{?page,size,order}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/permissions?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">desc</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>desc</span></span><p>排序规则</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1e"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.693Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.693Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10201"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"权限列表"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1c"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.686Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.686Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"101"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"首页"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1d"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.692Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.692Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"102"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"权限管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1f"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.693Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.693Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10202"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"管理员管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac20"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10203"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"用户组管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac23"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10302"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"活动管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac22"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10301"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"参数列表"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac21"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.694Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"103"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"游戏管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac24"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10303"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"广播管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac26"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">5</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10305"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"装修管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac27"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10306"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"游戏管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac28"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.696Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.696Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">7</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10307"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"玩家列表"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac25"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.695Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10304"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"消息管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979f06dea0757be50fb35a"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:34:46.575Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:34:46.575Z"</span></span>,
+        "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+        "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">8</span></span>,
+        "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10308"</span></span>,
+        "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"角标管理"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">14</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="用户管理" class="resource-group"><h2 class="group-heading">用户管理 <a href="#用户管理" class="permalink">&para;</a></h2><div id="用户管理-添加用户" class="resource"><h3 class="resource-heading">添加用户 <a href="#用户管理-添加用户" class="permalink">&nbsp;&para;</a></h3><div id="用户管理-添加用户-post" class="action post"><h4 class="action-heading"><div class="name">添加用户</div><a href="#用户管理-添加用户-post" class="method post">POST</a><code class="uri">/api/v1/users</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/users</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="用户组管理" class="resource-group"><h2 class="group-heading">用户组管理 <a href="#用户组管理" class="permalink">&para;</a></h2><div id="用户组管理-添加用户组" class="resource"><h3 class="resource-heading">添加用户组 <a href="#用户组管理-添加用户组" class="permalink">&nbsp;&para;</a></h3><div id="用户组管理-添加用户组-post" class="action post"><h4 class="action-heading"><div class="name">添加用户组</div><a href="#用户组管理-添加用户组-post" class="method post">POST</a><code class="uri">/api/v1/groups</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">groupName</span>": <span class="hljs-value"><span class="hljs-string">"asdfasdfasdfas"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:08:59.918Z"</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:08:59.918Z"</span></span>,
+    "<span class="hljs-attribute">groupName</span>": <span class="hljs-value"><span class="hljs-string">"asdfasdfasdfas"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a936c3be6fe91248a533918"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="用户组管理-获取用户组列表" class="resource"><h3 class="resource-heading">获取用户组列表 <a href="#用户组管理-获取用户组列表" class="permalink">&nbsp;&para;</a></h3><div id="用户组管理-获取用户组列表-get" class="action get"><h4 class="action-heading"><div class="name">获取用户组列表</div><a href="#用户组管理-获取用户组列表-get" class="method get">GET</a><code class="uri">/api/v1/groups{?page,size,order,sort}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">desc</span>&<span class="hljs-attribute">sort=</span><span class="hljs-literal">groupName</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>desc</span></span><p>排序规则</p>
+</dd><dt>sort</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>groupName</span></span><p>排序字段</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a936c3be6fe91248a533918"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:09:50.541Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:08:59.918Z"</span></span>,
+        "<span class="hljs-attribute">groupName</span>": <span class="hljs-value"><span class="hljs-string">"100211"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="用户组管理-用户组-权限操作" class="resource"><h3 class="resource-heading">用户组-权限操作 <a href="#用户组管理-用户组-权限操作" class="permalink">&nbsp;&para;</a></h3><div id="用户组管理-用户组-权限操作-get" class="action get"><h4 class="action-heading"><div class="name">获取用户组权限</div><a href="#用户组管理-用户组-权限操作-get" class="method get">GET</a><code class="uri">/api/v1/groups/{id}/permissions</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span>/permissions</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1d"</span></span>,
+      "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.692Z"</span></span>,
+      "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.692Z"</span></span>,
+      "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"102"</span></span>,
+      "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"权限管理"</span></span>,
+      "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1c"</span></span>,
+      "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.686Z"</span></span>,
+      "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.686Z"</span></span>,
+      "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"101"</span></span>,
+      "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"首页"</span></span>,
+      "<span class="hljs-attribute">path</span>": <span class="hljs-value"><span class="hljs-string">"/api/v1/"</span></span>,
+      "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a979e761e98d97b1c56ac1e"</span></span>,
+      "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.693Z"</span></span>,
+      "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-01T06:32:22.693Z"</span></span>,
+      "<span class="hljs-attribute">level</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+      "<span class="hljs-attribute">order</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">permissionFlag</span>": <span class="hljs-value"><span class="hljs-string">"10201"</span></span>,
+      "<span class="hljs-attribute">descresption</span>": <span class="hljs-value"><span class="hljs-string">"权限列表"</span></span>,
+      "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+      "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+    </span>}
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="用户组管理-用户组-权限操作-post" class="action post"><h4 class="action-heading"><div class="name">为用户组分配权限</div><a href="#用户组管理-用户组-权限操作-post" class="method post">POST</a><code class="uri">/api/v1/groups/{id}/permissions</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span>/permissions</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">permissions</span>": <span class="hljs-value">[
+    <span class="hljs-string">"5a979e761e98d97b1c56ac1e"</span>,
+    <span class="hljs-string">"5a979e761e98d97b1c56ac1c"</span>,
+    <span class="hljs-string">"5a979e761e98d97b1c56ac1d"</span>
+  ]
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="用户组管理-用户组-用户操作" class="resource"><h3 class="resource-heading">用户组-用户操作 <a href="#用户组管理-用户组-用户操作" class="permalink">&nbsp;&para;</a></h3><div id="用户组管理-用户组-用户操作-post" class="action post"><h4 class="action-heading"><div class="name">为用户组分配用户</div><a href="#用户组管理-用户组-用户操作-post" class="method post">POST</a><code class="uri">/api/v1/groups/{id}/{uid}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span>/<span class="hljs-attribute" title="uid">5a952700a049ac72d7c60a1b</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd><dt>uid</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a952700a049ac72d7c60a1b</span></span><p>用户ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="用户组管理-用户组-用户操作-delete" class="action delete"><h4 class="action-heading"><div class="name">为用户组移除用户</div><a href="#用户组管理-用户组-用户操作-delete" class="method delete">DELETE</a><code class="uri">/api/v1/groups/{id}/{uid}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span>/<span class="hljs-attribute" title="uid">5a952700a049ac72d7c60a1b</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd><dt>uid</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a952700a049ac72d7c60a1b</span></span><p>用户ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="用户组管理-用户组-用户操作-get" class="action get"><h4 class="action-heading"><div class="name">获取用户组所有用户</div><a href="#用户组管理-用户组-用户操作-get" class="method get">GET</a><code class="uri">/api/v1/groups/{id}/users</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span>/users</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a9a0a8f722e674e1c8d83a2"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-03T02:38:07.949Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-03T02:38:07.949Z"</span></span>,
+        "<span class="hljs-attribute">group</span>": <span class="hljs-value"><span class="hljs-string">"5a936c3be6fe91248a533918"</span></span>,
+        "<span class="hljs-attribute">user</span>": <span class="hljs-value"><span class="hljs-string">"5a952700a049ac72d7c60a1b"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="用户组管理-用户组单例操作" class="resource"><h3 class="resource-heading">用户组单例操作 <a href="#用户组管理-用户组单例操作" class="permalink">&nbsp;&para;</a></h3><div id="用户组管理-用户组单例操作-get" class="action get"><h4 class="action-heading"><div class="name">根据ID获取用户组</div><a href="#用户组管理-用户组单例操作-get" class="method get">GET</a><code class="uri">/api/v1/groups/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a936c3be6fe91248a533918"</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:08:59.918Z"</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:08:59.918Z"</span></span>,
+    "<span class="hljs-attribute">groupName</span>": <span class="hljs-value"><span class="hljs-string">"asdfasdfasdfas"</span></span>,
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="用户组管理-用户组单例操作-put" class="action put"><h4 class="action-heading"><div class="name">根据ID更新用户组</div><a href="#用户组管理-用户组单例操作-put" class="method put">PUT</a><code class="uri">/api/v1/groups/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">groupName</span>": <span class="hljs-value"><span class="hljs-string">"100211"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #修改的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div><div id="用户组管理-用户组单例操作-delete" class="action delete"><h4 class="action-heading"><div class="name">根据ID删除用户组</div><a href="#用户组管理-用户组单例操作-delete" class="method delete">DELETE</a><code class="uri">/api/v1/groups/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/groups/<span class="hljs-attribute" title="id">5a936c3be6fe91248a533918</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a936c3be6fe91248a533918</span></span><p>用户组ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #删除的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="游戏参数管理" class="resource-group"><h2 class="group-heading">游戏参数管理 <a href="#游戏参数管理" class="permalink">&para;</a></h2><div id="游戏参数管理-添加游戏参数" class="resource"><h3 class="resource-heading">添加游戏参数 <a href="#游戏参数管理-添加游戏参数" class="permalink">&nbsp;&para;</a></h3><div id="游戏参数管理-添加游戏参数-post" class="action post"><h4 class="action-heading"><div class="name">添加游戏参数</div><a href="#游戏参数管理-添加游戏参数-post" class="method post">POST</a><code class="uri">/api/v1/parameters</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/parameters</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+      <span class="hljs-number">1</span>,
+      <span class="hljs-number">2</span>,
+      <span class="hljs-number">3</span>
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+        <span class="hljs-number">1</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">3</span>
+      ]
+    </span>}</span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T05:25:58.990Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T05:25:58.985Z"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7bdf66bec77201e545297f"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+        <span class="hljs-number">1</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">3</span>
+      ]
+    </span>}</span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T05:25:58.990Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T05:25:58.985Z"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7bdf66bec77201e545297f"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="游戏参数管理-获取游戏参数列表" class="resource"><h3 class="resource-heading">获取游戏参数列表 <a href="#游戏参数管理-获取游戏参数列表" class="permalink">&nbsp;&para;</a></h3><div id="游戏参数管理-获取游戏参数列表-get" class="action get"><h4 class="action-heading"><div class="name">获取游戏参数列表</div><a href="#游戏参数管理-获取游戏参数列表-get" class="method get">GET</a><code class="uri">/api/v1/parameters{?page,size,order,sort}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/parameters?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">desc</span>&<span class="hljs-attribute">sort=</span><span class="hljs-literal">activeGame</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>desc</span></span><p>排序规则</p>
+</dd><dt>sort</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>activeGame</span></span><p>排序字段</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7bdf66bec77201e545297f"</span></span>,
+        "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+            <span class="hljs-number">1</span>,
+            <span class="hljs-number">2</span>,
+            <span class="hljs-number">3</span>
+          ]
+        </span>}</span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T05:25:58.990Z"</span></span>,
+        "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T05:25:58.985Z"</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>},
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7c1c391f77ff405f2ebfc8"</span></span>,
+        "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+            <span class="hljs-number">1</span>,
+            <span class="hljs-number">2</span>,
+            <span class="hljs-number">3</span>
+          ]
+        </span>}</span>,
+        "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T09:45:29.552Z"</span></span>,
+        "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T09:45:29.548Z"</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">2</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="游戏参数管理-游戏参数单例操作" class="resource"><h3 class="resource-heading">游戏参数单例操作 <a href="#游戏参数管理-游戏参数单例操作" class="permalink">&nbsp;&para;</a></h3><div id="游戏参数管理-游戏参数单例操作-get" class="action get"><h4 class="action-heading"><div class="name">根据ID获取游戏参数</div><a href="#游戏参数管理-游戏参数单例操作-get" class="method get">GET</a><code class="uri">/api/v1/parameters/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/parameters/<span class="hljs-attribute" title="id">5a7bc93ad1334b816bc952f3</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7bc93ad1334b816bc952f3</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7bc93ad1334b816bc952f3"</span></span>,
+    "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+        <span class="hljs-number">1</span>,
+        <span class="hljs-number">2</span>,
+        <span class="hljs-number">3</span>
+      ]
+    </span>}</span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T03:51:22.775Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-08T03:51:22.770Z"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="游戏参数管理-游戏参数单例操作-put" class="action put"><h4 class="action-heading"><div class="name">根据ID更新游戏参数</div><a href="#游戏参数管理-游戏参数单例操作-put" class="method put">PUT</a><code class="uri">/api/v1/parameters/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/parameters/<span class="hljs-attribute" title="id">5a7bc93ad1334b816bc952f3</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7bc93ad1334b816bc952f3</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">parameterData</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">array</span>": <span class="hljs-value">[
+      <span class="hljs-number">1</span>,
+      <span class="hljs-number">2</span>,
+      <span class="hljs-number">3</span>
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #修改的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div><div id="游戏参数管理-游戏参数单例操作-delete" class="action delete"><h4 class="action-heading"><div class="name">根据ID删除游戏参数</div><a href="#游戏参数管理-游戏参数单例操作-delete" class="method delete">DELETE</a><code class="uri">/api/v1/parameters/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/parameters/<span class="hljs-attribute" title="id">5a7bc93ad1334b816bc952f3</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7bc93ad1334b816bc952f3</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #删除的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="游戏列表管理" class="resource-group"><h2 class="group-heading">游戏列表管理 <a href="#游戏列表管理" class="permalink">&para;</a></h2><div id="游戏列表管理-添加游戏" class="resource"><h3 class="resource-heading">添加游戏 <a href="#游戏列表管理-添加游戏" class="permalink">&nbsp;&para;</a></h3><div id="游戏列表管理-添加游戏-post" class="action post"><h4 class="action-heading"><div class="name">添加游戏</div><a href="#游戏列表管理-添加游戏-post" class="method post">POST</a><code class="uri">/api/v1/games</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/games</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">gameId</span>": <span class="hljs-value"><span class="hljs-string">"1002"</span></span>,
+  "<span class="hljs-attribute">gameName</span>": <span class="hljs-value"><span class="hljs-string">"麻将"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:32:38.266Z"</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:32:38.266Z"</span></span>,
+    "<span class="hljs-attribute">gameId</span>": <span class="hljs-value"><span class="hljs-string">"1002"</span></span>,
+    "<span class="hljs-attribute">gameName</span>": <span class="hljs-value"><span class="hljs-string">"麻将"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a9371c68a9644285a1cc526"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="游戏列表管理-获取游戏列表" class="resource"><h3 class="resource-heading">获取游戏列表 <a href="#游戏列表管理-获取游戏列表" class="permalink">&nbsp;&para;</a></h3><div id="游戏列表管理-获取游戏列表-get" class="action get"><h4 class="action-heading"><div class="name">获取游戏列表</div><a href="#游戏列表管理-获取游戏列表-get" class="method get">GET</a><code class="uri">/api/v1/games{?page,size,order,sort}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/games?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">desc</span>&<span class="hljs-attribute">sort=</span><span class="hljs-literal">gameId</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>desc</span></span><p>排序规则</p>
+</dd><dt>sort</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>gameId</span></span><p>排序字段</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a9371c68a9644285a1cc526"</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:32:38.266Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:32:38.266Z"</span></span>,
+        "<span class="hljs-attribute">gameId</span>": <span class="hljs-value"><span class="hljs-string">"1002"</span></span>,
+        "<span class="hljs-attribute">gameName</span>": <span class="hljs-value"><span class="hljs-string">"麻将"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="游戏列表管理-游戏模型单例操作" class="resource"><h3 class="resource-heading">游戏模型单例操作 <a href="#游戏列表管理-游戏模型单例操作" class="permalink">&nbsp;&para;</a></h3><div id="游戏列表管理-游戏模型单例操作-get" class="action get"><h4 class="action-heading"><div class="name">根据ID获取游戏</div><a href="#游戏列表管理-游戏模型单例操作-get" class="method get">GET</a><code class="uri">/api/v1/games/</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/games/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a9371c68a9644285a1cc526"</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:32:38.266Z"</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-26T02:32:38.266Z"</span></span>,
+    "<span class="hljs-attribute">gameId</span>": <span class="hljs-value"><span class="hljs-string">"1002"</span></span>,
+    "<span class="hljs-attribute">gameName</span>": <span class="hljs-value"><span class="hljs-string">"麻将"</span></span>,
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="游戏列表管理-游戏模型单例操作-put" class="action put"><h4 class="action-heading"><div class="name">根据ID更新游戏</div><a href="#游戏列表管理-游戏模型单例操作-put" class="method put">PUT</a><code class="uri">/api/v1/games/</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/games/</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">gameId</span>": <span class="hljs-value"><span class="hljs-string">"1002"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #修改的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div><div id="游戏列表管理-游戏模型单例操作-delete" class="action delete"><h4 class="action-heading"><div class="name">根据ID删除游戏</div><a href="#游戏列表管理-游戏模型单例操作-delete" class="method delete">DELETE</a><code class="uri">/api/v1/games/</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/games/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #删除的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="活动管理" class="resource-group"><h2 class="group-heading">活动管理 <a href="#活动管理" class="permalink">&para;</a></h2><div id="活动管理-添加活动" class="resource"><h3 class="resource-heading">添加活动 <a href="#活动管理-添加活动" class="permalink">&nbsp;&para;</a></h3><div id="活动管理-添加活动-post" class="action post"><h4 class="action-heading"><div class="name">添加活动</div><a href="#活动管理-添加活动-post" class="method post">POST</a><code class="uri">/api/v1/activities</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/activities</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">activityName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+  "<span class="hljs-attribute">activityDescription</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">activityImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/test"</span></span>,
+  "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+  "<span class="hljs-attribute">activeModel</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">jumpLink</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">subscript</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+  "<span class="hljs-attribute">startAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-01-01 00:00"</span></span>,
+  "<span class="hljs-attribute">endAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-22 00:00"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "activityName": "string", #活动名称
+    "activityDescription": "string", #活动描述
+    "activityImg": "string", #活动图片
+    "activeGame": "string", #生效APP
+    "activeModel": "number", #生效模式 1: 积分赛，2: 好友局
+    "jumpLink": "string", #跳转链接 可为空
+    "subscript": "string", #活动角标
+    "startAt": "string", #生效时间
+    "endAt": "string" #结束时间
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">activityName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+    "<span class="hljs-attribute">activitySortFlag</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">activityDescription</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">activityImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/test"</span></span>,
+    "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+    "<span class="hljs-attribute">activeModel</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">startAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-31T16:00:00.000Z"</span></span>,
+    "<span class="hljs-attribute">endAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-21T16:00:00.000Z"</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T02:46:06.578Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T02:46:06.577Z"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7d0b6e896d037049b19db8"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">subscript</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">jumpLink</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "status": {
+        "code": "number,
+        "message": "string"
+    },
+    "data": {
+        "__v": 0,
+        "activityName": "string",
+        "activitySortFlag": "number", #活动排序字段
+        "activityDescription": "string",
+        "activityImg": "string",
+        "activeGame": "string",
+        "activeModel": "number",
+        "startAt": "string",
+        "endAt": "string",
+        "updateAt": "string",
+        "createAt": "string",
+        "_id": "string",
+        "isDeleted": "boolean",
+        "status": "number",
+        "subscript": "string",
+        "jumpLink": "string"
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="活动管理-获取活动列表" class="resource"><h3 class="resource-heading">获取活动列表 <a href="#活动管理-获取活动列表" class="permalink">&nbsp;&para;</a></h3><div id="活动管理-获取活动列表-get" class="action get"><h4 class="action-heading"><div class="name">获取活动列表</div><a href="#活动管理-获取活动列表-get" class="method get">GET</a><code class="uri">/api/v1/activities{?page,size,order,sort,activityName,activeGame,activeModel,status}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/activities?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">desc</span>&<span class="hljs-attribute">sort=</span><span class="hljs-literal">activeGame</span>&<span class="hljs-attribute">activityName=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">activeGame=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">activeModel=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">status=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>desc</span></span><p>排序规则</p>
+</dd><dt>sort</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>activeGame</span></span><p>排序字段</p>
+</dd><dt>activityName</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>搜索条件 - 活动名称</p>
+</dd><dt>activeGame</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>搜索条件 - 生效APP</p>
+</dd><dt>activeModel</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>搜索条件 - 生效模式</p>
+</dd><dt>status</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>搜索条件 - 状态</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7d0b6e896d037049b19db8"</span></span>,
+        "<span class="hljs-attribute">activityName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+        "<span class="hljs-attribute">activitySortFlag</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">activityDescription</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+        "<span class="hljs-attribute">activityImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/test"</span></span>,
+        "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+        "<span class="hljs-attribute">activeModel</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">startAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-31T16:00:00.000Z"</span></span>,
+        "<span class="hljs-attribute">endAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-21T16:00:00.000Z"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T02:46:06.578Z"</span></span>,
+        "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T02:46:06.577Z"</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">subscript</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+        "<span class="hljs-attribute">jumpLink</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="活动管理-交换活动排序" class="resource"><h3 class="resource-heading">交换活动排序 <a href="#活动管理-交换活动排序" class="permalink">&nbsp;&para;</a></h3><div id="活动管理-交换活动排序-post" class="action post"><h4 class="action-heading"><div class="name">交换活动排序</div><a href="#活动管理-交换活动排序-post" class="method post">POST</a><code class="uri">/api/v1/activities/swap/{fid}/{sid}</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/activities/swap/<span class="hljs-attribute" title="fid">5a7d556b0df0beb7aed7f272</span>/<span class="hljs-attribute" title="sid">5a7d556d0df0beb7aed7f273</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>fid</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d556b0df0beb7aed7f272</span></span><p>第一个活动ID</p>
+</dd><dt>sid</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d556d0df0beb7aed7f273</span></span><p>第一个活动ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>204</code></strong></div></div></div><div id="活动管理-活动模型单例操作" class="resource"><h3 class="resource-heading">活动模型单例操作 <a href="#活动管理-活动模型单例操作" class="permalink">&nbsp;&para;</a></h3><div id="活动管理-活动模型单例操作-get" class="action get"><h4 class="action-heading"><div class="name">根据ID获取活动</div><a href="#活动管理-活动模型单例操作-get" class="method get">GET</a><code class="uri">/api/v1/activities/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/activities/<span class="hljs-attribute" title="id">5a7d0b6e896d037049b19db8</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d0b6e896d037049b19db8</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7d0b6e896d037049b19db8"</span></span>,
+    "<span class="hljs-attribute">activityName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+    "<span class="hljs-attribute">activitySortFlag</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">activityDescription</span>": <span class="hljs-value"><span class="hljs-string">""</span></span>,
+    "<span class="hljs-attribute">activityImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/test"</span></span>,
+    "<span class="hljs-attribute">activeGame</span>": <span class="hljs-value"><span class="hljs-string">"5a7946d0190295b158218df8"</span></span>,
+    "<span class="hljs-attribute">activeModel</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">startAt</span>": <span class="hljs-value"><span class="hljs-string">"2017-12-31T16:00:00.000Z"</span></span>,
+    "<span class="hljs-attribute">endAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-21T16:00:00.000Z"</span></span>,
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T02:46:06.578Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T02:46:06.577Z"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">subscript</span>": <span class="hljs-value"><span class="hljs-literal">null</span></span>,
+    "<span class="hljs-attribute">jumpLink</span>": <span class="hljs-value"><span class="hljs-string">""</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="活动管理-活动模型单例操作-put" class="action put"><h4 class="action-heading"><div class="name">根据ID更新活动</div><a href="#活动管理-活动模型单例操作-put" class="method put">PUT</a><code class="uri">/api/v1/activities/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/activities/<span class="hljs-attribute" title="id">5a7d0b6e896d037049b19db8</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d0b6e896d037049b19db8</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">activeModel</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #修改的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div><div id="活动管理-活动模型单例操作-delete" class="action delete"><h4 class="action-heading"><div class="name">根据ID删除活动</div><a href="#活动管理-活动模型单例操作-delete" class="method delete">DELETE</a><code class="uri">/api/v1/activities/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/activities/<span class="hljs-attribute" title="id">5a7d0b6e896d037049b19db8</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d0b6e896d037049b19db8</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #删除的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="角标管理" class="resource-group"><h2 class="group-heading">角标管理 <a href="#角标管理" class="permalink">&para;</a></h2><div id="角标管理-添加角标" class="resource"><h3 class="resource-heading">添加角标 <a href="#角标管理-添加角标" class="permalink">&nbsp;&para;</a></h3><div id="角标管理-添加角标-post" class="action post"><h4 class="action-heading"><div class="name">添加角标</div><a href="#角标管理-添加角标-post" class="method post">POST</a><code class="uri">/api/v1/subscripts</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/subscripts</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">subscriptName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+  "<span class="hljs-attribute">subscriptImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "subscriptName": "string", #角标名称
+    "subscriptImg": "string" #角标图片地址
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">subscriptName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+    "<span class="hljs-attribute">subscriptImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396"</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T06:48:51.309Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T06:48:51.309Z"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7d445375b8e3a69d518056"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "status": {
+        "code": "number,
+        "message": "string"
+    },
+    "data": {
+         "__v": 0,
+        "subscriptName": "string", #角标名称
+        "subscriptImg": "string", #角标图片地址
+        "updateAt": "string",
+        "createAt": "string",
+        "_id": "string",
+        "isDeleted": "boolean"
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="角标管理-获取角标列表" class="resource"><h3 class="resource-heading">获取角标列表 <a href="#角标管理-获取角标列表" class="permalink">&nbsp;&para;</a></h3><div id="角标管理-获取角标列表-get" class="action get"><h4 class="action-heading"><div class="name">获取角标列表</div><a href="#角标管理-获取角标列表-get" class="method get">GET</a><code class="uri">/api/v1/subscripts{?page,size,order,sort}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/subscripts?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal">desc</span>&<span class="hljs-attribute">sort=</span><span class="hljs-literal">subscriptName</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>desc</span></span><p>排序规则</p>
+</dd><dt>sort</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>subscriptName</span></span><p>排序字段</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7d445375b8e3a69d518056"</span></span>,
+        "<span class="hljs-attribute">subscriptName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+        "<span class="hljs-attribute">subscriptImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T06:48:51.309Z"</span></span>,
+        "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T06:48:51.309Z"</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="角标管理-角标模型单例操作" class="resource"><h3 class="resource-heading">角标模型单例操作 <a href="#角标管理-角标模型单例操作" class="permalink">&nbsp;&para;</a></h3><div id="角标管理-角标模型单例操作-get" class="action get"><h4 class="action-heading"><div class="name">根据ID获取角标</div><a href="#角标管理-角标模型单例操作-get" class="method get">GET</a><code class="uri">/api/v1/subscripts/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/subscripts/<span class="hljs-attribute" title="id">5a7d445375b8e3a69d518056</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d445375b8e3a69d518056</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7d445375b8e3a69d518056"</span></span>,
+    "<span class="hljs-attribute">subscriptName</span>": <span class="hljs-value"><span class="hljs-string">"test"</span></span>,
+    "<span class="hljs-attribute">subscriptImg</span>": <span class="hljs-value"><span class="hljs-string">"http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396"</span></span>,
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">updateAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T06:48:51.309Z"</span></span>,
+    "<span class="hljs-attribute">createAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-09T06:48:51.309Z"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="角标管理-角标模型单例操作-put" class="action put"><h4 class="action-heading"><div class="name">根据ID更新角标</div><a href="#角标管理-角标模型单例操作-put" class="method put">PUT</a><code class="uri">/api/v1/subscripts/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/subscripts/<span class="hljs-attribute" title="id">5a7d445375b8e3a69d518056</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d445375b8e3a69d518056</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">activeModel</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #修改的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div><div id="角标管理-角标模型单例操作-delete" class="action delete"><h4 class="action-heading"><div class="name">根据ID删除角标</div><a href="#角标管理-角标模型单例操作-delete" class="method delete">DELETE</a><code class="uri">/api/v1/subscripts/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/subscripts/<span class="hljs-attribute" title="id">5a7d445375b8e3a69d518056</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a7d445375b8e3a69d518056</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #删除的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="广播管理" class="resource-group"><h2 class="group-heading">广播管理 <a href="#广播管理" class="permalink">&para;</a></h2><div id="广播管理-添加广播" class="resource"><h3 class="resource-heading">添加广播 <a href="#广播管理-添加广播" class="permalink">&nbsp;&para;</a></h3><div id="广播管理-添加广播-post" class="action post"><h4 class="action-heading"><div class="name">添加广播</div><a href="#广播管理-添加广播-post" class="method post">POST</a><code class="uri">/api/v1/broadcasts</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/broadcasts</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="消息管理" class="resource-group"><h2 class="group-heading">消息管理 <a href="#消息管理" class="permalink">&para;</a></h2><div id="消息管理-添加消息" class="resource"><h3 class="resource-heading">添加消息 <a href="#消息管理-添加消息" class="permalink">&nbsp;&para;</a></h3><div id="消息管理-添加消息-post" class="action post"><h4 class="action-heading"><div class="name">添加消息</div><a href="#消息管理-添加消息-post" class="method post">POST</a><code class="uri">/api/v1/messages</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/messages</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"dsfas"</span></span>,
+  "<span class="hljs-attribute">btnTitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfsdaf"</span></span>,
+  "<span class="hljs-attribute">subtitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdf"</span></span>,
+  "<span class="hljs-attribute">to</span>": <span class="hljs-value"><span class="hljs-string">"vxczkjhadkfhlaskdjfhasdfjh"</span></span>,
+  "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdfsadfsadfasdfsadfasdfsafdfa"</span></span>,
+  "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+      "<span class="hljs-attribute">itemId</span>": <span class="hljs-value"><span class="hljs-string">"Coin"</span></span>,
+      "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">10</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">timing</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+  "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-12 00:00"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "type": "number",  #消息类型，0：系统, 1：个人
+    "title": "string", #邮件标题
+    "btnTitle": "string", #按钮标题
+    "subtitle": "string", #副标题
+    "to": "string", #邮件接收人
+    "content": "string", #邮件内容
+    "items": [{
+        "type": "number", #0: 货币, 1: 物品
+        "itemId": "string", #货币类型或则物品ID
+        "count": "number" #货币数量或则物品数量
+    }],
+    "timing": "bool", #定时发送
+    "date": "string" #发送时间
+}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">messageId</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-10T09:11:26.251Z"</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-10T09:11:26.251Z"</span></span>,
+    "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-11T16:00:00.000Z"</span></span>,
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7eb73ef109ef09f3fd8d96"</span></span>,
+    "<span class="hljs-attribute">to</span>": <span class="hljs-value"><span class="hljs-string">"5a7eb73ef109ef09f3fd8d96"</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">timing</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7eb73ef109ef09f3fd8d97"</span></span>,
+        "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+        "<span class="hljs-attribute">itemId</span>": <span class="hljs-value"><span class="hljs-string">"Coin"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdfsadfsadfasdfsadfasdfsafdfa"</span></span>,
+    "<span class="hljs-attribute">subtitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdf"</span></span>,
+    "<span class="hljs-attribute">btnTitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfsdaf"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"dsfas"</span></span>,
+    "<span class="hljs-attribute">status</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "__v": 0,
+        "messageId": "number", #消息内部ID，自增长
+        "updatedAt": "string",
+        "createdAt": "string",
+        "date": "string", #发送时间
+        "_id": "string",
+        "isDeleted": "bool",
+        "timing": "bool", #定时发送
+        "weight": "number", #邮件优先级权重, 越高越优先展示
+        "items": [{
+            "_id": "string",
+            "count": "number", #货币数量或则物品数量
+            "itemId": "string", #货币类型或则物品ID
+            "type": "number" #0: 货币, 1: 物品
+        }],
+        "content": "string", #邮件内容
+        "subtitle": "string", #副标题
+        "btnTitle": "string", #按钮标题
+        "title": "string", #邮件标题
+        "type": "number" #消息类型，0：系统, 1：个人
+        "status": "number", #发送状态 1:成功，2:失败
+        "sender": "string", #发送者
+        "to": "string" #目标
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="消息管理-获取消息列表" class="resource"><h3 class="resource-heading">获取消息列表 <a href="#消息管理-获取消息列表" class="permalink">&nbsp;&para;</a></h3><div id="消息管理-获取消息列表-get" class="action get"><h4 class="action-heading"><div class="name">获取消息列表</div><a href="#消息管理-获取消息列表-get" class="method get">GET</a><code class="uri">/api/v1/message{?page,size,order,sort,title,to}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/message?<span class="hljs-attribute">page=</span><span class="hljs-literal">1</span>&<span class="hljs-attribute">size=</span><span class="hljs-literal">10</span>&<span class="hljs-attribute">order=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">sort=</span><span class="hljs-literal"></span>&<span class="hljs-attribute">title=</span><span class="hljs-literal">wwww</span>&<span class="hljs-attribute">to=</span><span class="hljs-literal"></span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>page</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>分页页码</p>
+</dd><dt>size</dt><dd><code>number</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>10</span></span><p>每页数据量</p>
+</dd><dt>order</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>排序规则</p>
+</dd><dt>sort</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>排序字段</p>
+</dd><dt>title</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>wwww</span></span><p>搜索条件 - 邮件标题</p>
+</dd><dt>to</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<p>搜索条件 - 接收方</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">docs</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7ebcba1c92da0aa3d77eae"</span></span>,
+        "<span class="hljs-attribute">messageId</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+        "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-10T09:34:50.944Z"</span></span>,
+        "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-10T09:34:50.944Z"</span></span>,
+        "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-11T16:00:00.000Z"</span></span>,
+        "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+        "<span class="hljs-attribute">timing</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+        "<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a7ebcba1c92da0aa3d77eaf"</span></span>,
+            "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+            "<span class="hljs-attribute">itemId</span>": <span class="hljs-value"><span class="hljs-string">"Coin"</span></span>,
+            "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+          </span>}
+        ]</span>,
+        "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdfsadfsadfasdfsadfasdfsafdfa"</span></span>,
+        "<span class="hljs-attribute">subtitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdf"</span></span>,
+        "<span class="hljs-attribute">btnTitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfsdaf"</span></span>,
+        "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"wwww"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="消息管理-消息模型单例操作" class="resource"><h3 class="resource-heading">消息模型单例操作 <a href="#消息管理-消息模型单例操作" class="permalink">&nbsp;&para;</a></h3><div id="消息管理-消息模型单例操作-get" class="action get"><h4 class="action-heading"><div class="name">根据ID获取角标</div><a href="#消息管理-消息模型单例操作-get" class="method get">GET</a><code class="uri">/api/v1/messages/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/messages/<span class="hljs-attribute" title="id">5a952dfd2dbf11755d1c21cc</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a952dfd2dbf11755d1c21cc</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">status</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"success"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a952dfd2dbf11755d1c21cc"</span></span>,
+    "<span class="hljs-attribute">messageId</span>": <span class="hljs-value"><span class="hljs-number">6</span></span>,
+    "<span class="hljs-attribute">updatedAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-27T10:07:57.296Z"</span></span>,
+    "<span class="hljs-attribute">createdAt</span>": <span class="hljs-value"><span class="hljs-string">"2018-02-27T10:07:57.296Z"</span></span>,
+    "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"2018-03-11T16:00:00.000Z"</span></span>,
+    "<span class="hljs-attribute">__v</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">isDeleted</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">sended</span>": <span class="hljs-value"><span class="hljs-literal">false</span></span>,
+    "<span class="hljs-attribute">timing</span>": <span class="hljs-value"><span class="hljs-literal">true</span></span>,
+    "<span class="hljs-attribute">weight</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">items</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">_id</span>": <span class="hljs-value"><span class="hljs-string">"5a952dfd2dbf11755d1c21cd"</span></span>,
+        "<span class="hljs-attribute">count</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+        "<span class="hljs-attribute">itemId</span>": <span class="hljs-value"><span class="hljs-string">"Coin"</span></span>,
+        "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+      </span>}
+    ]</span>,
+    "<span class="hljs-attribute">content</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdfsadfsadfasdfsadfasdfsafdfa"</span></span>,
+    "<span class="hljs-attribute">subtitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfasdf"</span></span>,
+    "<span class="hljs-attribute">btnTitle</span>": <span class="hljs-value"><span class="hljs-string">"sadfsdaf"</span></span>,
+    "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"wwww"</span></span>,
+    "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-number">0</span>
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div><div id="消息管理-消息模型单例操作-put" class="action put"><h4 class="action-heading"><div class="name">根据ID更新消息</div><a href="#消息管理-消息模型单例操作-put" class="method put">PUT</a><code class="uri">/api/v1/messages/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/messages/<span class="hljs-attribute" title="id">5a952dfd2dbf11755d1c21cc</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>number</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5a952dfd2dbf11755d1c21cc</span></span><p>游戏参数ID</p>
+</dd></dl></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">title</span>": <span class="hljs-value"><span class="hljs-string">"100211"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+    "status": {
+        "code": 0,
+        "message": "success"
+    },
+    "data": {
+        "n": 1, #符合条件的文档数量
+        "nModified": 1, #修改的文档数量
+        "ok": 1 #成功的文档数量
+    }
+}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="装修管理" class="resource-group"><h2 class="group-heading">装修管理 <a href="#装修管理" class="permalink">&para;</a></h2><div id="装修管理-添加装修" class="resource"><h3 class="resource-heading">添加装修 <a href="#装修管理-添加装修" class="permalink">&nbsp;&para;</a></h3><div id="装修管理-添加装修-post" class="action post"><h4 class="action-heading"><div class="name">添加装修</div><a href="#装修管理-添加装修-post" class="method post">POST</a><code class="uri">/api/v1/decorations</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/decorations</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="玩家列表管理" class="resource-group"><h2 class="group-heading">玩家列表管理 <a href="#玩家列表管理" class="permalink">&para;</a></h2><div id="玩家列表管理-添加玩家" class="resource"><h3 class="resource-heading">添加玩家 <a href="#玩家列表管理-添加玩家" class="permalink">&nbsp;&para;</a></h3><div id="玩家列表管理-添加玩家-post" class="action post"><h4 class="action-heading"><div class="name">添加玩家</div><a href="#玩家列表管理-添加玩家-post" class="method post">POST</a><code class="uri">/api/v1/players</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/api/v1/players</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 05 Mar 2018</p><script>/* eslint-env browser */
+/* eslint quotes: [2, "single"] */
+'use strict';
+
+/*
+  Determine if a string ends with another string.
+*/
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
+}
+
+/*
+  Get a list of direct child elements by class name.
+*/
+function childrenByClass(element, name) {
+  var filtered = [];
+
+  for (var i = 0; i < element.children.length; i++) {
+    var child = element.children[i];
+    var classNames = child.className.split(' ');
+    if (classNames.indexOf(name) !== -1) {
+      filtered.push(child);
+    }
+  }
+
+  return filtered;
+}
+
+/*
+  Get an array [width, height] of the window.
+*/
+function getWindowDimensions() {
+  var w = window,
+      d = document,
+      e = d.documentElement,
+      g = d.body,
+      x = w.innerWidth || e.clientWidth || g.clientWidth,
+      y = w.innerHeight || e.clientHeight || g.clientHeight;
+
+  return [x, y];
+}
+
+/*
+  Collapse or show a request/response example.
+*/
+function toggleCollapseButton(event) {
+    var button = event.target.parentNode;
+    var content = button.parentNode.nextSibling;
+    var inner = content.children[0];
+
+    if (button.className.indexOf('collapse-button') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+        // Currently showing, so let's hide it
+        button.className = 'collapse-button';
+        content.style.maxHeight = '0px';
+    } else {
+        // Currently hidden, so let's show it
+        button.className = 'collapse-button show';
+        content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+function toggleTabButton(event) {
+    var i, index;
+    var button = event.target;
+
+    // Get index of the current button.
+    var buttons = childrenByClass(button.parentNode, 'tab-button');
+    for (i = 0; i < buttons.length; i++) {
+        if (buttons[i] === button) {
+            index = i;
+            button.className = 'tab-button active';
+        } else {
+            buttons[i].className = 'tab-button';
+        }
+    }
+
+    // Hide other tabs and show this one.
+    var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+    for (i = 0; i < tabs.length; i++) {
+        if (i === index) {
+            tabs[i].style.display = 'block';
+        } else {
+            tabs[i].style.display = 'none';
+        }
+    }
+}
+
+/*
+  Collapse or show a navigation menu. It will not be hidden unless it
+  is currently selected or `force` has been passed.
+*/
+function toggleCollapseNav(event, force) {
+    var heading = event.target.parentNode;
+    var content = heading.nextSibling;
+    var inner = content.children[0];
+
+    if (heading.className.indexOf('heading') === -1) {
+      // Clicked without hitting the right element?
+      return;
+    }
+
+    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+      // Currently showing, so let's hide it, but only if this nav item
+      // is already selected. This prevents newly selected items from
+      // collapsing in an annoying fashion.
+      if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+        content.style.maxHeight = '0px';
+      }
+    } else {
+      // Currently hidden, so let's show it
+      content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+    }
+}
+
+/*
+  Refresh the page after a live update from the server. This only
+  works in live preview mode (using the `--server` parameter).
+*/
+function refresh(body) {
+    document.querySelector('body').className = 'preload';
+    document.body.innerHTML = body;
+
+    // Re-initialize the page
+    init();
+    autoCollapse();
+
+    document.querySelector('body').className = '';
+}
+
+/*
+  Determine which navigation items should be auto-collapsed to show as many
+  as possible on the screen, based on the current window height. This also
+  collapses them.
+*/
+function autoCollapse() {
+  var windowHeight = getWindowDimensions()[1];
+  var itemsHeight = 64; /* Account for some padding */
+  var itemsArray = Array.prototype.slice.call(
+    document.querySelectorAll('nav .resource-group .heading'));
+
+  // Get the total height of the navigation items
+  itemsArray.forEach(function (item) {
+    itemsHeight += item.parentNode.offsetHeight;
+  });
+
+  // Should we auto-collapse any nav items? Try to find the smallest item
+  // that can be collapsed to show all items on the screen. If not possible,
+  // then collapse the largest item and do it again. First, sort the items
+  // by height from smallest to largest.
+  var sortedItems = itemsArray.sort(function (a, b) {
+    return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+  });
+
+  while (sortedItems.length && itemsHeight > windowHeight) {
+    for (var i = 0; i < sortedItems.length; i++) {
+      // Will collapsing this item help?
+      var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+      if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+        // It will, so let's collapse it, remove its content height from
+        // our total and then remove it from our list of candidates
+        // that can be collapsed.
+        itemsHeight -= itemHeight;
+        toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+        sortedItems.splice(i, 1);
+        break;
+      }
+    }
+  }
+}
+
+/*
+  Initialize the interactive functionality of the page.
+*/
+function init() {
+    var i, j;
+
+    // Make collapse buttons clickable
+    var buttons = document.querySelectorAll('.collapse-button');
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = toggleCollapseButton;
+
+        // Show by default? Then toggle now.
+        if (buttons[i].className.indexOf('show') !== -1) {
+            toggleCollapseButton({target: buttons[i].children[0]});
+        }
+    }
+
+    var responseCodes = document.querySelectorAll('.example-names');
+    for (i = 0; i < responseCodes.length; i++) {
+        var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+        for (j = 0; j < tabButtons.length; j++) {
+            tabButtons[j].onclick = toggleTabButton;
+
+            // Show by default?
+            if (j === 0) {
+                toggleTabButton({target: tabButtons[j]});
+            }
+        }
+    }
+
+    // Make nav items clickable to collapse/expand their content.
+    var navItems = document.querySelectorAll('nav .resource-group .heading');
+    for (i = 0; i < navItems.length; i++) {
+        navItems[i].onclick = toggleCollapseNav;
+
+        // Show all by default
+        toggleCollapseNav({target: navItems[i].children[0]});
+    }
+}
+
+// Initial call to set up buttons
+init();
+
+window.onload = function () {
+    autoCollapse();
+    // Remove the `preload` class to enable animations
+    document.querySelector('body').className = '';
+};
+</script></body></html>

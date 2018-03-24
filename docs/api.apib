@@ -1,0 +1,1512 @@
+FORMAT: 1A
+
+# APP接口文档
+
+# Group 文件处理
+
+## 图片处理 [/api/v1/image]
+### 上传图片 [POST]
+
++ Request ( multipart/*)
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "url": "http://chess-admin.oss-cn-beijing.aliyuncs.com/d766bb8b-a85c-4c98-9673-e132d3862747"
+                }
+            }
+
+### 下载图片 [GET]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                imgUrl: "http://chess-admin.oss-cn-beijing.aliyuncs.com/d766bb8b-a85c-4c98-9673-e132d3862747"
+            }
+
+    + Schema
+
+            {
+                imgUrl: "string" - 图片地址
+            }
+
++ Response 200 (image/*)
+
+# Group 登录相关处理
+
+## 获取验证码 [GET /api/v1/captcha]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "id": "H14pihDOz",
+                "data": "<svg xmlns="http: //www.w3.org/2000/svg" width="150" height="50"><rect width="100%" height="100%" fill="#11eeee"/><path d="M6 19 C60 1,70 46,137 8" stroke="#e15050" fill="none"/><path fill="#38413d" d="M28.68 27.75L28.59 27.66L28.70 27.78Q25.03 27.53 23.93 30.88L23.97 30.92L24.03 30.98Q23.68 32.08 23.57 33.15L23.53 33.11L23.57 33.15Q23.24 35.07 24.23 36.40L24.39 36.56L24.37 36.54Q25.63 37.65 28.11 37.69L28.08 37.66L28.19 37.77Q30.06 37.85 31.47 36.71L31.46 36.70L31.28 36.52Q32.77 35.46 32.77 33.67L32.86 33.76L32.81 33.71Q32.70 33.26 32.62 32.88L32.74 32.99L32.70 32.95Q32.40 27.74 28.59 27.66ZM28.59 40.23L28.51 40.15L28.46 40.10Q24.67 40.34 22.88 38.33L22.87 38.32L23.02 38.47Q22.68 39.38 22.22 40.75L22.23 40.76L22.37 40.90Q20.31 41.54 19.05 42.11L19.13 42.19L19.02 42.08Q21.22 36.13 21.22 29.62L21.17 29.57L21.17 29.57Q21.29 21.39 17.87 13.55L17.79 13.47L17.90 13.59Q20.15 14.85 21.48 15.30L21.49 15.31L21.47 15.29Q23.55 21.90 23.70 27.73L23.67 27.69L23.73 27.75Q25.20 25.12 28.93 25.15L28.96 25.18L29.01 25.23Q32.10 25.12 33.58 26.98L33.60 27.00L33.58 26.98Q35.49 29.35 35.64 32.93L35.58 32.86L35.67 32.95Q35.61 34.00 35.53 35.60L35.66 35.72L35.68 35.75Q35.64 37.19 34.76 38.33L34.65 38.22L34.66 38.23Q32.83 39.86 28.49 40.13ZM34.06 42.72L34.06 42.72L34.09 42.76Q35.58 42.76 37.06 42.07L37.02 42.03L37.03 42.04Q38.18 40.79 38.22 38.85L38.12 38.76L38.27 38.90Q38.28 38.42 38.13 37.24L38.01 37.13L38.09 37.21Q37.98 36.48 37.86 35.57L37.85 35.56L37.86 35.57Q37.01 30.76 35.45 28.70L35.43 28.68L35.39 28.63Q35.51 28.72 34.71 27.84L34.72 27.86L34.73 27.86Q34.50 27.60 33.97 26.80L33.94 26.77L33.79 26.62Q32.24 24.73 28.89 24.77L28.96 24.84L28.84 24.71Q26.97 24.94 25.71 25.54L25.64 25.48L25.70 25.54Q25.23 20.88 24.62 17.68L24.75 17.81L24.65 17.71Q23.88 17.51 22.39 17.13L22.52 17.26L22.55 17.29Q22.22 16.35 21.77 14.90L21.94 15.07L21.86 14.99Q19.33 14.10 17.09 12.54L17.07 12.53L17.08 12.53Q20.99 20.86 20.99 29.66L21.02 29.69L20.91 29.58Q20.97 36.61 18.50 42.81L18.39 42.70L18.50 42.82Q19.07 42.36 20.40 41.78L20.49 41.88L20.45 41.83Q20.33 42.70 19.72 44.22L19.59 44.09L19.73 44.23Q21.54 43.15 24.32 42.62L24.34 42.63L24.74 40.83L24.78 40.87Q27.09 42.57 34.02 42.69ZM30.34 30.10L30.24 30.00L30.27 30.03Q31.25 29.99 31.79 30.37L31.86 30.44L31.83 30.41Q32.21 30.98 32.44 33.00L32.38 32.94L32.35 32.91Q32.50 34.73 31.24 36.05L31.31 36.11L31.26 36.06Q30.09 37.46 28.15 37.35L28.13 37.33L28.05 37.25Q27.27 37.54 25.78 37.04L25.83 37.08L25.68 36.94Q25.43 36.42 25.43 35.89L25.52 35.97L25.47 35.93Q25.48 32.85 27.04 31.25L27.00 31.21L26.99 31.24L26.99 31.24Q28.52 29.96 30.27 30.03Z"/><path fill="#283438" d="M85.90 19.59L85.97 19.66L84.33 19.70L84.38 19.74Q82.14 19.87 81.91 21.88L81.95 21.91L82.00 21.97Q81.86 22.63 81.90 23.62L81.82 23.54L81.85 23.57Q81.96 25.58 83.22 26.92L83.19 26.89L83.19 26.89Q84.52 28.30 86.42 28.14L86.26 27.99L86.27 27.99Q88.44 27.95 89.20 27.04L89.11 26.94L89.19 27.02Q90.25 26.10 90.51 23.86L90.44 23.78L90.48 23.83Q90.65 21.48 89.40 20.65L89.53 20.78L89.53 20.78Q88.70 20.03 86.04 19.73ZM91.91 28.80L91.93 28.82L90.75 31.21L90.78 31.24Q88.02 35.98 84.25 40.06L84.22 40.02L84.24 40.04Q82.63 40.22 79.93 41.02L79.98 41.08L79.83 40.93Q85.14 34.63 88.30 29.83L88.33 29.86L88.33 29.86Q87.41 30.62 85.78 30.70L85.69 30.61L85.73 30.65Q82.74 30.82 81.22 28.84L81.21 28.83L81.22 28.84Q80.02 27.26 78.91 22.69L78.83 22.61L78.85 22.63Q78.83 22.15 78.68 21.22L78.68 21.22L78.73 21.27Q78.61 20.36 78.61 19.91L78.66 19.96L78.57 19.87Q78.46 17.98 79.53 17.37L79.60 17.44L79.64 17.48Q80.74 16.60 82.61 16.60L82.67 16.67L82.74 16.74Q85.95 16.75 85.95 16.75L86.01 16.80L85.88 16.68Q88.11 16.77 89.36 16.96L89.37 16.96L89.37 16.96Q91.56 17.29 92.47 17.78L92.36 17.67L92.34 17.65Q93.84 18.54 94.03 20.30L93.98 20.25L93.92 20.19Q93.91 20.41 93.72 23.07L93.82 23.17L93.70 23.05Q93.38 25.24 93.15 26.08L93.15 26.08L93.17 26.09Q92.86 27.57 92.09 28.98ZM93.96 31.34L93.81 31.19L93.83 31.21Q94.88 29.07 95.42 24.76L95.35 24.70L95.44 24.78Q95.70 22.58 95.67 21.70L95.62 21.65L95.69 21.72Q95.60 19.81 94.42 18.89L94.49 18.96L94.23 18.89L94.05 18.72Q93.93 18.10 93.01 17.45L92.88 17.32L92.93 17.37Q90.59 16.32 85.79 16.17L85.89 16.27L85.84 16.22Q85.00 16.33 82.56 16.33L82.45 16.22L82.56 16.32Q80.69 16.21 79.21 16.89L79.18 16.87L79.33 17.02Q78.13 17.76 78.21 19.59L78.11 19.48L78.15 19.52Q78.28 20.38 78.47 22.40L78.54 22.47L78.61 22.54Q79.22 25.17 79.49 26.00L79.47 25.99L79.35 25.87Q79.93 27.74 80.88 29.03L80.91 29.07L80.88 29.03Q81.29 29.52 81.67 29.90L81.64 29.87L81.60 29.83Q81.88 30.30 82.53 31.22L82.52 31.20L82.48 31.17Q83.97 32.54 85.91 32.73L85.89 32.71L85.89 32.71Q84.06 35.45 82.50 37.35L82.46 37.31L78.81 41.66L78.77 41.62Q81.06 40.90 82.70 40.56L82.75 40.61L82.82 40.68Q81.95 41.45 80.39 43.16L80.48 43.25L80.43 43.20Q83.54 42.32 86.66 42.28L86.60 42.22L86.71 42.33Q89.05 39.75 93.39 32.52L93.25 32.38L93.34 32.55L93.37 32.57Q93.65 31.86 93.99 31.37ZM87.95 22.10L87.94 22.08L87.82 21.96Q88.54 21.96 88.99 22.07L88.93 22.01L89.03 22.11Q89.66 22.21 90.04 22.32L89.92 22.20L90.04 22.32Q90.16 22.70 90.23 23.12L90.11 22.99L90.19 23.08Q90.27 23.50 90.16 23.88L90.22 23.95L90.14 23.86Q90.12 25.60 88.94 26.70L88.92 26.68L88.82 26.58Q88.03 27.77 86.39 27.73L86.29 27.63L86.41 27.75Q85.99 27.75 84.47 27.45L84.34 27.31L84.29 27.26Q84.17 26.50 84.17 25.77L84.06 25.66L84.10 25.71Q84.05 25.47 84.05 25.24L84.16 25.34L84.04 25.23Q84.14 23.12 86.42 22.32L86.41 22.31L86.40 22.30Q87.13 22.12 87.97 22.12Z"/><path fill="#2b2b30" d="M56.40 19.68L56.39 19.68L54.78 19.74L54.87 19.83Q52.48 19.80 52.25 21.82L52.35 21.92L52.39 21.96Q52.30 22.67 52.34 23.66L52.29 23.61L52.21 23.53Q52.30 25.52 53.55 26.85L53.58 26.88L53.53 26.83Q54.82 28.20 56.73 28.05L56.81 28.13L56.69 28.01Q58.80 27.91 59.56 26.99L59.57 27.01L59.48 26.92Q60.59 26.04 60.85 23.80L60.96 23.91L60.84 23.79Q61.22 21.65 59.96 20.81L59.98 20.83L59.82 20.68Q59.03 19.96 56.37 19.66ZM62.36 28.84L62.31 28.79L61.06 31.12L61.06 31.12Q58.31 35.88 54.54 39.95L54.55 39.95L54.69 40.10Q53.04 40.23 50.34 41.03L50.23 40.93L50.37 41.07Q55.70 34.79 58.86 29.99L58.70 29.83L58.76 29.89Q57.72 30.53 56.09 30.60L56.07 30.59L56.05 30.57Q53.20 30.88 51.68 28.90L51.54 28.76L51.65 28.87Q50.39 27.23 49.29 22.66L49.24 22.61L49.31 22.69Q49.21 22.13 49.06 21.20L49.17 21.31L49.17 21.31Q48.89 20.25 48.89 19.79L49.06 19.96L48.93 19.83Q48.86 17.97 49.93 17.37L50.00 17.44L49.94 17.38Q51.21 16.67 53.08 16.67L53.15 16.74L53.17 16.76Q56.28 16.68 56.28 16.68L56.36 16.75L56.24 16.63Q58.56 16.82 59.81 17.01L59.79 16.98L59.78 16.97Q61.94 17.27 62.85 17.76L62.79 17.70L62.72 17.63Q64.13 18.43 64.32 20.18L64.37 20.23L64.30 20.16Q64.36 20.45 64.17 23.12L64.23 23.18L64.12 23.07Q63.78 25.24 63.55 26.08L63.61 26.14L63.50 26.03Q63.19 27.51 62.43 28.92ZM64.38 31.36L64.25 31.23L64.37 31.35Q65.19 28.98 65.73 24.67L65.89 24.83L65.88 24.83Q66.15 22.62 66.11 21.74L65.98 21.62L66.12 21.76Q65.93 19.74 64.75 18.83L64.88 18.96L64.51 18.78L64.63 18.89Q64.26 18.03 63.35 17.39L63.36 17.40L63.28 17.32Q61.06 16.39 56.27 16.24L56.24 16.21L56.32 16.30Q55.34 16.27 52.91 16.27L52.85 16.21L52.92 16.29Q51.20 16.31 49.71 17.00L49.55 16.83L49.74 17.02Q48.43 17.66 48.51 19.49L48.67 19.65L48.57 19.55Q48.82 20.52 49.01 22.54L49.05 22.58L48.91 22.44Q49.52 25.06 49.78 25.90L49.81 25.93L49.86 25.97Q50.38 27.79 51.33 29.09L51.34 29.10L51.38 29.13Q51.67 29.50 52.05 29.88L52.09 29.92L51.93 29.76Q52.33 30.35 52.98 31.26L52.86 31.15L52.93 31.21Q54.46 32.63 56.40 32.82L56.43 32.85L56.30 32.72Q54.53 35.52 52.97 37.43L52.78 37.24L49.30 41.75L49.31 41.76Q51.53 40.97 53.16 40.62L53.19 40.65L53.07 40.53Q52.40 41.50 50.84 43.21L50.73 43.10L50.82 43.19Q53.82 42.20 56.94 42.16L57.10 42.32L57.00 42.21Q59.45 39.75 63.79 32.52L63.65 32.38L63.74 32.55L63.65 32.46Q63.92 31.74 64.26 31.24ZM58.24 21.98L58.35 22.10L58.19 21.93Q58.86 21.88 59.31 21.99L59.41 22.09L59.28 21.96Q60.04 22.19 60.42 22.30L60.35 22.23L60.39 22.27Q60.51 22.65 60.59 23.07L60.57 23.06L60.62 23.11Q60.70 23.53 60.59 23.91L60.49 23.81L60.48 23.81Q60.59 25.67 59.41 26.77L59.35 26.71L59.34 26.70Q58.36 27.70 56.73 27.67L56.65 27.59L56.79 27.73Q56.28 27.63 54.75 27.33L54.73 27.30L54.77 27.34Q54.59 26.51 54.59 25.79L54.49 25.69L54.53 25.73Q54.46 25.47 54.46 25.24L54.45 25.24L54.44 25.22Q54.58 23.16 56.86 22.36L56.68 22.17L56.66 22.16Q57.39 21.97 58.22 21.97Z"/><path d="M16 43 C57 10,57 39,134 8" stroke="#e27de2" fill="none"/><path fill="#394535" d="M114.87 29.92L114.76 29.81L114.87 29.92Q114.63 29.91 114.33 29.91L114.30 29.88L114.29 29.87Q113.00 29.91 111.55 30.75L111.57 30.77L111.47 30.67Q110.07 31.71 110.07 33.61L110.16 33.70L110.04 33.58Q110.05 37.02 111.58 38.35L111.70 38.48L111.67 38.44Q112.67 39.68 114.96 39.68L114.98 39.70L114.89 39.61Q115.15 39.65 115.46 39.65L115.38 39.57L115.56 39.75Q117.10 39.57 118.24 37.93L118.38 38.08L118.36 38.05Q119.35 36.49 119.27 34.71L119.31 34.74L119.34 34.77Q119.38 34.28 119.38 33.86L119.41 33.89L119.35 33.83Q119.27 31.96 117.90 30.80L117.96 30.86L118.01 30.91Q116.63 29.74 114.84 29.89ZM119.40 40.12L119.36 40.08L119.31 40.03Q118.34 41.99 114.61 42.11L114.68 42.18L114.53 42.03Q111.18 42.19 109.58 40.59L109.61 40.62L109.61 40.61Q108.06 38.76 107.26 33.96L107.37 34.07L107.29 33.99Q106.96 32.22 106.96 30.96L107.08 31.08L106.95 30.95Q107.11 29.32 107.83 28.25L107.68 28.10L107.81 28.23Q109.02 26.70 111.99 26.70L112.13 26.83L112.17 26.88Q118.42 26.81 120.32 29.40L120.27 29.34L120.30 29.37Q120.59 28.67 121.01 27.07L120.92 26.99L120.95 27.01Q122.24 26.75 124.68 25.95L124.70 25.97L124.70 25.97Q122.15 31.49 121.92 37.81L122.03 37.92L121.86 37.75Q121.76 44.04 123.89 49.87L123.89 49.87L123.75 49.73Q122.15 49.23 120.36 48.96L120.24 48.85L120.32 48.93Q119.45 45.01 119.33 40.06ZM120.00 49.18L120.07 49.25L120.14 49.32Q120.78 49.39 122.19 49.69L122.15 49.65L122.19 49.69Q122.52 50.52 123.09 51.93L122.92 51.75L122.95 51.78Q125.53 52.50 127.82 53.79L127.96 53.94L127.80 53.78Q123.84 47.26 123.84 38.73L123.82 38.72L123.93 38.83Q123.86 32.41 126.34 26.62L126.31 26.59L126.32 26.60Q125.59 26.86 124.22 27.51L124.35 27.64L124.24 27.53Q124.65 26.83 125.30 25.27L125.30 25.27L125.18 25.15Q123.71 25.78 120.51 26.65L120.57 26.72L120.58 26.72Q120.28 27.11 119.98 28.29L120.10 28.41L120.04 28.35Q118.07 26.50 111.94 26.35L111.86 26.26L111.87 26.27Q108.77 26.30 107.40 27.78L107.36 27.74L107.35 27.73Q106.58 28.87 106.62 30.77L106.67 30.82L106.72 30.87Q106.73 33.78 107.72 37.54L107.70 37.53L107.77 37.59Q108.35 39.93 109.27 40.88L109.35 40.96L109.60 41.21L109.77 41.38Q110.87 44.08 116.32 44.31L116.28 44.28L116.22 44.21Q117.33 44.33 119.15 44.03L119.20 44.07L119.20 44.07Q119.53 47.03 120.14 49.31ZM116.73 32.20L116.64 32.12L116.68 32.15Q117.84 32.24 118.68 32.55L118.67 32.54L118.68 32.55Q118.85 33.07 118.97 33.68L119.03 33.74L118.86 33.57Q119.10 34.26 119.02 34.87L118.84 34.69L118.95 34.80Q118.85 36.60 117.82 37.90L118.00 38.07L117.83 37.91Q116.80 39.46 114.93 39.27L114.86 39.21L114.90 39.24Q113.52 39.15 112.56 38.73L112.57 38.74L112.61 38.77Q112.24 37.95 112.24 36.74L112.30 36.79L112.32 36.81Q112.24 36.42 112.24 36.12L112.27 36.15L112.30 36.19Q112.20 34.33 113.53 33.17L113.65 33.29L113.58 33.22Q114.98 32.13 116.73 32.20Z"/></svg>"
+            }
+
+## 登录 [POST /api/v1/login]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "username": "admin",
+                "password": "123456",
+                "captchaId": "H14pihDOz",
+                "captcha": "b99q"
+            }
+
+    + Schema
+
+            {
+                username: "string" - 图片地址
+                password: "string" - 图片地址
+                captchaId: "验证码ID" - 图片地址
+                captcha: "验证码" - 图片地址
+            }
+
++ Response 200
+
+### 注销 [POST /api/v1/logout]
+
++ Response 200
+
+# Group 权限管理
+
+## 获取权限列表  [GET /api/v1/permissions{?page,size,order,sort}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order: `desc` (string,optional) - 排序规则
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a979e761e98d97b1c56ac1e",
+                        "updatedAt": "2018-03-01T06:32:22.693Z",
+                        "createdAt": "2018-03-01T06:32:22.693Z",
+                        "level": 2,
+                        "order": 1,
+                        "permissionFlag": "10201",
+                        "descresption": "权限列表",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac1c",
+                        "updatedAt": "2018-03-01T06:32:22.686Z",
+                        "createdAt": "2018-03-01T06:32:22.686Z",
+                        "level": 1,
+                        "order": 1,
+                        "permissionFlag": "101",
+                        "descresption": "首页",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac1d",
+                        "updatedAt": "2018-03-01T06:32:22.692Z",
+                        "createdAt": "2018-03-01T06:32:22.692Z",
+                        "level": 1,
+                        "order": 2,
+                        "permissionFlag": "102",
+                        "descresption": "权限管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac1f",
+                        "updatedAt": "2018-03-01T06:32:22.693Z",
+                        "createdAt": "2018-03-01T06:32:22.693Z",
+                        "level": 2,
+                        "order": 2,
+                        "permissionFlag": "10202",
+                        "descresption": "管理员管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac20",
+                        "updatedAt": "2018-03-01T06:32:22.694Z",
+                        "createdAt": "2018-03-01T06:32:22.694Z",
+                        "level": 2,
+                        "order": 3,
+                        "permissionFlag": "10203",
+                        "descresption": "用户组管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac23",
+                        "updatedAt": "2018-03-01T06:32:22.694Z",
+                        "createdAt": "2018-03-01T06:32:22.694Z",
+                        "level": 2,
+                        "order": 2,
+                        "permissionFlag": "10302",
+                        "descresption": "活动管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac22",
+                        "updatedAt": "2018-03-01T06:32:22.694Z",
+                        "createdAt": "2018-03-01T06:32:22.694Z",
+                        "level": 2,
+                        "order": 1,
+                        "permissionFlag": "10301",
+                        "descresption": "参数列表",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac21",
+                        "updatedAt": "2018-03-01T06:32:22.694Z",
+                        "createdAt": "2018-03-01T06:32:22.694Z",
+                        "level": 1,
+                        "order": 3,
+                        "permissionFlag": "103",
+                        "descresption": "游戏管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac24",
+                        "updatedAt": "2018-03-01T06:32:22.695Z",
+                        "createdAt": "2018-03-01T06:32:22.695Z",
+                        "level": 2,
+                        "order": 3,
+                        "permissionFlag": "10303",
+                        "descresption": "广播管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac26",
+                        "updatedAt": "2018-03-01T06:32:22.695Z",
+                        "createdAt": "2018-03-01T06:32:22.695Z",
+                        "level": 2,
+                        "order": 5,
+                        "permissionFlag": "10305",
+                        "descresption": "装修管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac27",
+                        "updatedAt": "2018-03-01T06:32:22.695Z",
+                        "createdAt": "2018-03-01T06:32:22.695Z",
+                        "level": 2,
+                        "order": 6,
+                        "permissionFlag": "10306",
+                        "descresption": "游戏管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac28",
+                        "updatedAt": "2018-03-01T06:32:22.696Z",
+                        "createdAt": "2018-03-01T06:32:22.696Z",
+                        "level": 2,
+                        "order": 7,
+                        "permissionFlag": "10307",
+                        "descresption": "玩家列表",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979e761e98d97b1c56ac25",
+                        "updatedAt": "2018-03-01T06:32:22.695Z",
+                        "createdAt": "2018-03-01T06:32:22.695Z",
+                        "level": 2,
+                        "order": 4,
+                        "permissionFlag": "10304",
+                        "descresption": "消息管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a979f06dea0757be50fb35a",
+                        "updatedAt": "2018-03-01T06:34:46.575Z",
+                        "createdAt": "2018-03-01T06:34:46.575Z",
+                        "level": 2,
+                        "order": 8,
+                        "permissionFlag": "10308",
+                        "descresption": "角标管理",
+                        "__v": 0,
+                        "isDeleted": false
+                    }],
+                    "count": 14
+                }
+            }
+
+# Group 用户管理
+
+## 添加用户  [POST /api/v1/users]
+
++ Response 200 (application/json)
+
+
+# Group 用户组管理
+
+## 添加用户组  [POST /api/v1/groups]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "groupName": "asdfasdfasdfas"
+            }
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "updatedAt": "2018-02-26T02:08:59.918Z",
+                    "createdAt": "2018-02-26T02:08:59.918Z",
+                    "groupName": "asdfasdfasdfas",
+                    "_id": "5a936c3be6fe91248a533918",
+                    "isDeleted": false
+                }
+            }
+
+
+## 获取用户组列表  [GET /api/v1/groups{?page,size,order,sort}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order: `desc` (string,optional) - 排序规则
+    + sort: `groupName` (string,optional) - 排序字段
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a936c3be6fe91248a533918",
+                        "updatedAt": "2018-02-26T02:09:50.541Z",
+                        "createdAt": "2018-02-26T02:08:59.918Z",
+                        "groupName": "100211",
+                        "__v": 0,
+                        "isDeleted": false
+                    }],
+                    "count": 1
+                }
+            }
+
+## 用户组-权限操作  [/api/v1/groups/{id}/permissions]
+
++ Parameters
+
+    + id: `5a936c3be6fe91248a533918` (number) - 用户组ID
+
+### 获取用户组权限 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": [{
+                    "_id": "5a979e761e98d97b1c56ac1d",
+                    "updatedAt": "2018-03-01T06:32:22.692Z",
+                    "createdAt": "2018-03-01T06:32:22.692Z",
+                    "level": 1,
+                    "order": 2,
+                    "permissionFlag": "102",
+                    "descresption": "权限管理",
+                    "isDeleted": false,
+                    "__v": 0
+                }, {
+                    "_id": "5a979e761e98d97b1c56ac1c",
+                    "updatedAt": "2018-03-01T06:32:22.686Z",
+                    "createdAt": "2018-03-01T06:32:22.686Z",
+                    "level": 1,
+                    "order": 1,
+                    "permissionFlag": "101",
+                    "descresption": "首页",
+                    "path": "/api/v1/",
+                    "isDeleted": false,
+                    "__v": 0
+                }, {
+                    "_id": "5a979e761e98d97b1c56ac1e",
+                    "updatedAt": "2018-03-01T06:32:22.693Z",
+                    "createdAt": "2018-03-01T06:32:22.693Z",
+                    "level": 2,
+                    "order": 1,
+                    "permissionFlag": "10201",
+                    "descresption": "权限列表",
+                    "isDeleted": false,
+                    "__v": 0
+                }]
+            }
+
+### 为用户组分配权限 [POST]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "permissions": [
+                    "5a979e761e98d97b1c56ac1e",
+                    "5a979e761e98d97b1c56ac1c",
+                    "5a979e761e98d97b1c56ac1d"
+                ]
+            }
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                }
+            }
+
+## 用户组-用户操作  [/api/v1/groups/{id}/{uid}]
+
++ Parameters
+
+    + id: `5a936c3be6fe91248a533918` (number) - 用户组ID
+    + uid: `5a952700a049ac72d7c60a1b` (number) - 用户ID
+
+### 为用户组分配用户 [POST]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                }
+            }
+
+### 为用户组移除用户 [DELETE]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                }
+            }
+
+## 获取用户组所有用户  [GET /api/v1/groups/{id}/users]
+
++ Parameters
+
+    + id: `5a936c3be6fe91248a533918` (number) - 用户组ID
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a9a0a8f722e674e1c8d83a2",
+                        "updatedAt": "2018-03-03T02:38:07.949Z",
+                        "createdAt": "2018-03-03T02:38:07.949Z",
+                        "group": "5a936c3be6fe91248a533918",
+                        "user": "5a952700a049ac72d7c60a1b",
+                        "__v": 0,
+                        "isDeleted": false
+                    }],
+                    "count": 1
+                }
+            }
+
+## 用户组单例操作  [/api/v1/groups/{id}]
+
++ Parameters
+
+    + id: `5a936c3be6fe91248a533918` (number) - 用户组ID
+
+### 根据ID获取用户组 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "_id": "5a936c3be6fe91248a533918",
+                    "updatedAt": "2018-02-26T02:08:59.918Z",
+                    "createdAt": "2018-02-26T02:08:59.918Z",
+                    "groupName": "asdfasdfasdfas",
+                    "__v": 0,
+                    "isDeleted": false
+                }
+            }
+
+### 根据ID更新用户组 [PUT]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "groupName": "100211"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #修改的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+### 根据ID删除用户组 [DELETE]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #删除的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+# Group 游戏参数管理
+
+## 添加游戏参数  [POST /api/v1/parameters]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "parameterData": {
+                    "array": [1, 2, 3]
+                },
+                "description": 1,
+                "activeGame": "5a7946d0190295b158218df8"
+            }
+
+    + Schema
+
+             {
+                  "type": "object",
+                  "properties": {
+                      "parameterData": {
+                          "type": "object"
+                      },
+                      "description": {
+                          "type": "string"
+                      },
+                      "activeGame": {
+                          "type": "string"
+                      }
+                  }
+              }
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "parameterData": {
+                        "array": [1, 2, 3]
+                    },
+                    "description": 1,
+                    "activeGame": "5a7946d0190295b158218df8",
+                    "updateAt": "2018-02-08T05:25:58.990Z",
+                    "createAt": "2018-02-08T05:25:58.985Z",
+                    "_id": "5a7bdf66bec77201e545297f",
+                    "isDeleted": false
+                }
+            }
+
+    + Schema
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "parameterData": {
+                        "array": [1, 2, 3]
+                    },
+                    "description": 1,
+                    "activeGame": "5a7946d0190295b158218df8",
+                    "updateAt": "2018-02-08T05:25:58.990Z",
+                    "createAt": "2018-02-08T05:25:58.985Z",
+                    "_id": "5a7bdf66bec77201e545297f",
+                    "isDeleted": false
+                }
+            }
+
+## 获取游戏参数列表  [GET /api/v1/parameters{?page,size,order,sort}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order: `desc` (string,optional) - 排序规则
+    + sort: `activeGame` (string,optional) - 排序字段
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a7bdf66bec77201e545297f",
+                        "parameterData": {
+                            "array": [1, 2, 3]
+                        },
+                        "description": 1,
+                        "activeGame": "5a7946d0190295b158218df8",
+                        "__v": 0,
+                        "updateAt": "2018-02-08T05:25:58.990Z",
+                        "createAt": "2018-02-08T05:25:58.985Z",
+                        "isDeleted": false
+                    }, {
+                        "_id": "5a7c1c391f77ff405f2ebfc8",
+                        "parameterData": {
+                            "array": [1, 2, 3]
+                        },
+                        "description": 1,
+                        "activeGame": "5a7946d0190295b158218df8",
+                        "__v": 0,
+                        "updateAt": "2018-02-08T09:45:29.552Z",
+                        "createAt": "2018-02-08T09:45:29.548Z",
+                        "isDeleted": false
+                    }],
+                    "count": 2
+                }
+            }
+
+## 游戏参数单例操作  [/api/v1/parameters/{id}]
+
++ Parameters
+
+    + id: `5a7bc93ad1334b816bc952f3` (number) - 游戏参数ID
+
+
+### 根据ID获取游戏参数 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "_id": "5a7bc93ad1334b816bc952f3",
+                    "parameterData": {
+                        "array": [1, 2, 3]
+                    },
+                    "description": 2,
+                    "activeGame": "5a7946d0190295b158218df8",
+                    "__v": 0,
+                    "updateAt": "2018-02-08T03:51:22.775Z",
+                    "createAt": "2018-02-08T03:51:22.770Z",
+                    "isDeleted": false
+                }
+            }
+
+### 根据ID更新游戏参数 [PUT]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "parameterData": {
+                    "array": [1, 2, 3]
+                },
+                "description": 1,
+                "activeGame": "5a7946d0190295b158218df8"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #修改的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+### 根据ID删除游戏参数 [DELETE]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #删除的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+
+# Group 游戏列表管理
+
+## 添加游戏  [POST /api/v1/games]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "gameId": "1002",
+                "gameName": "麻将"
+            }
+
+    + Schema
+
+
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "updatedAt": "2018-02-26T02:32:38.266Z",
+                    "createdAt": "2018-02-26T02:32:38.266Z",
+                    "gameId": "1002",
+                    "gameName": "麻将",
+                    "_id": "5a9371c68a9644285a1cc526",
+                    "isDeleted": false
+                }
+            }
+
+## 获取游戏列表  [GET /api/v1/games{?page,size,order,sort}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order: `desc` (string,optional) - 排序规则
+    + sort: `gameId` (string,optional) - 排序字段
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a9371c68a9644285a1cc526",
+                        "updatedAt": "2018-02-26T02:32:38.266Z",
+                        "createdAt": "2018-02-26T02:32:38.266Z",
+                        "gameId": "1002",
+                        "gameName": "麻将",
+                        "__v": 0,
+                        "isDeleted": false
+                    }],
+                    "count": 1
+                }
+            }
+
+## 游戏模型单例操作  [/api/v1/games/{id}]
+
+### 根据ID获取游戏 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "_id": "5a9371c68a9644285a1cc526",
+                    "updatedAt": "2018-02-26T02:32:38.266Z",
+                    "createdAt": "2018-02-26T02:32:38.266Z",
+                    "gameId": "1002",
+                    "gameName": "麻将",
+                    "__v": 0,
+                    "isDeleted": false
+                }
+            }
+
+### 根据ID更新游戏 [PUT]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "gameId": "1002"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #修改的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+### 根据ID删除游戏 [DELETE]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #删除的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+# Group 活动管理
+
+## 添加活动  [POST /api/v1/activities]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "activityName": "test",
+                "activityDescription": "",
+                "activityImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/test",
+                "activeGame": "5a7946d0190295b158218df8",
+                "activeModel": 1,
+                "jumpLink": "",
+                "subscript": "",
+                "startAt": "2018-01-01 00:00",
+                "endAt": "2018-02-22 00:00"
+            }
+
+    + Schema
+
+             {
+                "activityName": "string", #活动名称
+                "activityDescription": "string", #活动描述
+                "activityImg": "string", #活动图片
+                "activeGame": "string", #生效APP
+                "activeModel": "number", #生效模式 1: 积分赛，2: 好友局
+                "jumpLink": "string", #跳转链接 可为空
+                "subscript": "string", #活动角标
+                "startAt": "string", #生效时间
+                "endAt": "string" #结束时间
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "activityName": "test",
+                    "activitySortFlag": 1,
+                    "activityDescription": "",
+                    "activityImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/test",
+                    "activeGame": "5a7946d0190295b158218df8",
+                    "activeModel": 1,
+                    "startAt": "2017-12-31T16:00:00.000Z",
+                    "endAt": "2018-02-21T16:00:00.000Z",
+                    "updateAt": "2018-02-09T02:46:06.578Z",
+                    "createAt": "2018-02-09T02:46:06.577Z",
+                    "_id": "5a7d0b6e896d037049b19db8",
+                    "isDeleted": false,
+                    "status": 1,
+                    "subscript": null,
+                    "jumpLink": ""
+                }
+            }
+
+    + Schema
+
+            {
+                "status": {
+                    "code": "number,
+                    "message": "string"
+                },
+                "data": {
+                    "__v": 0,
+                    "activityName": "string",
+                    "activitySortFlag": "number", #活动排序字段
+                    "activityDescription": "string",
+                    "activityImg": "string",
+                    "activeGame": "string",
+                    "activeModel": "number",
+                    "startAt": "string",
+                    "endAt": "string",
+                    "updateAt": "string",
+                    "createAt": "string",
+                    "_id": "string",
+                    "isDeleted": "boolean",
+                    "status": "number",
+                    "subscript": "string",
+                    "jumpLink": "string"
+                }
+            }
+
+## 获取活动列表  [GET /api/v1/activities{?page,size,order,sort,activityName,activeGame,activeModel,status}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order: `desc` (string,optional) - 排序规则
+    + sort: `activeGame` (string,optional) - 排序字段
+    + activityName (string,optional) - 搜索条件 - 活动名称
+    + activeGame (string,optional) - 搜索条件 - 生效APP
+    + activeModel (string,optional) - 搜索条件 - 生效模式
+    + status (string,optional) - 搜索条件 - 状态
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a7d0b6e896d037049b19db8",
+                        "activityName": "test",
+                        "activitySortFlag": 1,
+                        "activityDescription": "",
+                        "activityImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/test",
+                        "activeGame": "5a7946d0190295b158218df8",
+                        "activeModel": 1,
+                        "startAt": "2017-12-31T16:00:00.000Z",
+                        "endAt": "2018-02-21T16:00:00.000Z",
+                        "__v": 0,
+                        "updateAt": "2018-02-09T02:46:06.578Z",
+                        "createAt": "2018-02-09T02:46:06.577Z",
+                        "isDeleted": false,
+                        "status": 1,
+                        "subscript": null,
+                        "jumpLink": ""
+                    }],
+                    "count": 1
+                }
+            }
+
+## 交换活动排序  [POST /api/v1/activities/swap/{fid}/{sid}]
+
++ Parameters
+
+    + fid: `5a7d556b0df0beb7aed7f272` (string,optional) - 第一个活动ID
+    + sid: `5a7d556d0df0beb7aed7f273` (string,optional) - 第一个活动ID
+
++ Response 204
+
+
+## 活动模型单例操作  [/api/v1/activities/{id}]
+
++ Parameters
+
+    + id: `5a7d0b6e896d037049b19db8` (number) - 游戏参数ID
+
+
+### 根据ID获取活动 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "_id": "5a7d0b6e896d037049b19db8",
+                    "activityName": "test",
+                    "activitySortFlag": 1,
+                    "activityDescription": "",
+                    "activityImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/test",
+                    "activeGame": "5a7946d0190295b158218df8",
+                    "activeModel": 1,
+                    "startAt": "2017-12-31T16:00:00.000Z",
+                    "endAt": "2018-02-21T16:00:00.000Z",
+                    "__v": 0,
+                    "updateAt": "2018-02-09T02:46:06.578Z",
+                    "createAt": "2018-02-09T02:46:06.577Z",
+                    "isDeleted": false,
+                    "status": 1,
+                    "subscript": null,
+                    "jumpLink": ""
+                }
+            }
+
+### 根据ID更新活动 [PUT]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "activeModel": 1
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #修改的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+### 根据ID删除活动 [DELETE]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #删除的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+# Group 角标管理
+
+## 添加角标  [POST /api/v1/subscripts]
+
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "subscriptName": "test",
+                "subscriptImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396"
+            }
+
+    + Schema
+
+             {
+                "subscriptName": "string", #角标名称
+                "subscriptImg": "string" #角标图片地址
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "subscriptName": "test",
+                    "subscriptImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396",
+                    "updateAt": "2018-02-09T06:48:51.309Z",
+                    "createAt": "2018-02-09T06:48:51.309Z",
+                    "_id": "5a7d445375b8e3a69d518056",
+                    "isDeleted": false
+                }
+            }
+
+    + Schema
+
+            {
+                "status": {
+                    "code": "number,
+                    "message": "string"
+                },
+                "data": {
+                     "__v": 0,
+                    "subscriptName": "string", #角标名称
+                    "subscriptImg": "string", #角标图片地址
+                    "updateAt": "string",
+                    "createAt": "string",
+                    "_id": "string",
+                    "isDeleted": "boolean"
+                }
+            }
+
+## 获取角标列表  [GET /api/v1/subscripts{?page,size,order,sort}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order: `desc` (string,optional) - 排序规则
+    + sort: `subscriptName` (string,optional) - 排序字段
+
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a7d445375b8e3a69d518056",
+                        "subscriptName": "test",
+                        "subscriptImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396",
+                        "__v": 0,
+                        "updateAt": "2018-02-09T06:48:51.309Z",
+                        "createAt": "2018-02-09T06:48:51.309Z",
+                        "isDeleted": false
+                    }],
+                    "count": 1
+                }
+            }
+
+## 角标模型单例操作  [/api/v1/subscripts/{id}]
+
++ Parameters
+
+    + id: `5a7d445375b8e3a69d518056` (number) - 游戏参数ID
+
+
+### 根据ID获取角标 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "_id": "5a7d445375b8e3a69d518056",
+                    "subscriptName": "test",
+                    "subscriptImg": "http://chess-admin.oss-cn-beijing.aliyuncs.com/ca4f3abb-0443-456c-a5ab-78e735dd2396",
+                    "__v": 0,
+                    "updateAt": "2018-02-09T06:48:51.309Z",
+                    "createAt": "2018-02-09T06:48:51.309Z",
+                    "isDeleted": false
+                }
+            }
+
+### 根据ID更新角标 [PUT]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "activeModel": 1
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #修改的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+### 根据ID删除角标 [DELETE]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #删除的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+# Group 广播管理
+
+## 添加广播  [POST /api/v1/broadcasts]
+
++ Response 200 (application/json)
+
+# Group 消息管理
+
+## 添加消息  [POST /api/v1/messages]
+
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "type": 0,
+                "title": "dsfas",
+                "btnTitle": "sadfsdaf",
+                "subtitle": "sadfasdf",
+                "to": "vxczkjhadkfhlaskdjfhasdfjh",
+                "content": "sadfasdfsadfsadfasdfsadfasdfsafdfa",
+                "items": [{
+                    "type": 0,
+                    "itemId": "Coin",
+                    "count": 10
+                }],
+                "timing": true,
+                "date": "2018-03-12 00:00"
+            }
+
+    + Schema
+
+             {
+                "type": "number",  #消息类型，0：系统, 1：个人
+                "title": "string", #邮件标题
+                "btnTitle": "string", #按钮标题
+                "subtitle": "string", #副标题
+                "to": "string", #邮件接收人
+                "content": "string", #邮件内容
+                "items": [{
+                    "type": "number", #0: 货币, 1: 物品
+                    "itemId": "string", #货币类型或则物品ID
+                    "count": "number" #货币数量或则物品数量
+                }],
+                "timing": "bool", #定时发送
+                "date": "string" #发送时间
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "messageId": 2,
+                    "updatedAt": "2018-02-10T09:11:26.251Z",
+                    "createdAt": "2018-02-10T09:11:26.251Z",
+                    "date": "2018-03-11T16:00:00.000Z",
+                    "_id": "5a7eb73ef109ef09f3fd8d96",
+                    "to": "5a7eb73ef109ef09f3fd8d96",
+                    "isDeleted": false,
+                    "timing": true,
+                    "weight": 0,
+                    "items": [{
+                        "_id": "5a7eb73ef109ef09f3fd8d97",
+                        "count": 10,
+                        "itemId": "Coin",
+                        "type": 0
+                    }],
+                    "content": "sadfasdfsadfsadfasdfsadfasdfsafdfa",
+                    "subtitle": "sadfasdf",
+                    "btnTitle": "sadfsdaf",
+                    "title": "dsfas",
+                    "status": 1,
+                    "type": 0
+                }
+            }
+
+    + Schema
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "__v": 0,
+                    "messageId": "number", #消息内部ID，自增长
+                    "updatedAt": "string",
+                    "createdAt": "string",
+                    "date": "string", #发送时间
+                    "_id": "string",
+                    "isDeleted": "bool",
+                    "timing": "bool", #定时发送
+                    "weight": "number", #邮件优先级权重, 越高越优先展示
+                    "items": [{
+                        "_id": "string",
+                        "count": "number", #货币数量或则物品数量
+                        "itemId": "string", #货币类型或则物品ID
+                        "type": "number" #0: 货币, 1: 物品
+                    }],
+                    "content": "string", #邮件内容
+                    "subtitle": "string", #副标题
+                    "btnTitle": "string", #按钮标题
+                    "title": "string", #邮件标题
+                    "type": "number" #消息类型，0：系统, 1：个人
+                    "status": "number", #发送状态 1:成功，2:失败
+                    "sender": "string", #发送者
+                    "to": "string" #目标
+                }
+            }
+
+## 获取消息列表  [GET /api/v1/message{?page,size,order,sort,title,to}]
+
++ Parameters
+
+    + page: `1` (number,optional) - 分页页码
+    + size: `10` (number,optional) - 每页数据量
+    + order (string,optional) - 排序规则
+    + sort  (string,optional) - 排序字段
+    + title: `wwww` (string,optional) - 搜索条件 - 邮件标题
+    + to (string,optional) - 搜索条件 - 接收方
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "docs": [{
+                        "_id": "5a7ebcba1c92da0aa3d77eae",
+                        "messageId": 3,
+                        "updatedAt": "2018-02-10T09:34:50.944Z",
+                        "createdAt": "2018-02-10T09:34:50.944Z",
+                        "date": "2018-03-11T16:00:00.000Z",
+                        "__v": 0,
+                        "isDeleted": false,
+                        "timing": true,
+                        "weight": 0,
+                        "items": [{
+                            "_id": "5a7ebcba1c92da0aa3d77eaf",
+                            "count": 10,
+                            "itemId": "Coin",
+                            "type": 0
+                        }],
+                        "content": "sadfasdfsadfsadfasdfsadfasdfsafdfa",
+                        "subtitle": "sadfasdf",
+                        "btnTitle": "sadfsdaf",
+                        "title": "wwww",
+                        "type": 0
+                    }],
+                    "count": 1
+                }
+            }
+
+## 消息模型单例操作  [/api/v1/messages/{id}]
+
++ Parameters
+
+    + id: `5a952dfd2dbf11755d1c21cc` (number) - 游戏参数ID
+
+### 根据ID获取角标 [GET]
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "_id": "5a952dfd2dbf11755d1c21cc",
+                    "messageId": 6,
+                    "updatedAt": "2018-02-27T10:07:57.296Z",
+                    "createdAt": "2018-02-27T10:07:57.296Z",
+                    "date": "2018-03-11T16:00:00.000Z",
+                    "__v": 0,
+                    "isDeleted": false,
+                    "sended": false,
+                    "timing": true,
+                    "weight": 0,
+                    "items": [{
+                        "_id": "5a952dfd2dbf11755d1c21cd",
+                        "count": 10,
+                        "itemId": "Coin",
+                        "type": 0
+                    }],
+                    "content": "sadfasdfsadfsadfasdfsadfasdfsafdfa",
+                    "subtitle": "sadfasdf",
+                    "btnTitle": "sadfsdaf",
+                    "title": "wwww",
+                    "type": 0
+                }
+            }
+
+### 根据ID更新消息 [PUT]
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "title": "100211"
+            }
+
++ Response 200 (application/json)
+
+    + Body
+
+            {
+                "status": {
+                    "code": 0,
+                    "message": "success"
+                },
+                "data": {
+                    "n": 1, #符合条件的文档数量
+                    "nModified": 1, #修改的文档数量
+                    "ok": 1 #成功的文档数量
+                }
+            }
+
+
+# Group 装修管理
+
+## 添加装修  [POST /api/v1/decorations]
+
++ Response 200 (application/json)
+
+# Group 玩家列表管理
+
+## 添加玩家  [POST /api/v1/players]
+
++ Response 200 (application/json)
